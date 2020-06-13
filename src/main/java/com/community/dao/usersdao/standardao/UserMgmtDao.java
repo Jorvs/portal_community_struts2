@@ -316,10 +316,10 @@ public static User getProfileDataById(int user_id){
     Connection  conn = null;
     
     try{
-         conn = DConnection.getConnectionToMySQL();
-       String query = "SELECT * " 
-                    + "FROM user_table " 
-                    + "WHERE user_id = ? ";
+        conn = DConnection.getConnectionToMySQL();
+        String query = "SELECT * " 
+                     + "FROM user_table " 
+                     + "WHERE user_id = ? ";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, user_id);
 
@@ -328,7 +328,7 @@ public static User getProfileDataById(int user_id){
         while(rs.next())
         {
             // if all tables where selected the number inside the parenthesis are there number if the table of the database
-             userObj = new User(rs.getInt(1), rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14));
+             userObj = new User(rs.getInt(1), rs.getString(4),rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14));
             
             // System.out.println(userList);
         }

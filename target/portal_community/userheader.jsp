@@ -45,7 +45,8 @@ if(session.getAttribute("login_user") == null)
         <a class="nav-item nav-link dropdown-toggle "  data-toggle="dropdown" id="servicesDropdown" aria-haspopup="true" aria-expanded="false" href="#">Profile</a> <!-- there is no addres link so that the drop down would work --> 
         <!-- the drop down menus goes down here --> 
            <div   class="dropdown-menu" aria-labelledby="servicesDropdown"> 
-              <a class="dropdown-item" href="profile.jsp">Profile</a> 
+              <!-- <a class="dropdown-item" href="profile.jsp">Profile</a>  -->
+              <a class="dropdown-item" href="viewProfileAction?user_id=<s:property value="#user.user_id" />profle</a>
               <a class="dropdown-item" href="update.jsp">Update Profile</a> 
               <a class="dropdown-item" href="links here">Account Settings</a> 
               <a class="dropdown-item" href="login.jsp">Logout</a> 

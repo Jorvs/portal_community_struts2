@@ -15,61 +15,72 @@
 
 
 <package name="UserMgmt" extends="struts-default">
-    <!-- when logon succeful redirects to homePageDataPapulateAction -->
+
+
+    <!-- when logoin will be directed to a diifrent action  -->
     <action name="loginAction" class="com.community.actions.useractions.standardactions.accountmanagement.LoginAction" >  
-            <result name="loginsuccess" type="redirect" >/profile.jsp</result>
+            <result name="loginsuccess" type="redirect" >/viewProfileAction</result>
             <result name="input" >/login.jsp</result> 
     </action>
+
+        <!-- when login will be redirect to this action to execute action and redirect to to profile.jsp -->
+    <action name="viewProfileAction" class="com.community.actions.useractions.standardactions.accountmanagement.ViewProfileAction" >  
+        <result name="viewprofile"  >/profile.jsp</result>
+        <!-- <result name="input" >/login.jsp</result>  -->
+    </action>
+
+
+
         
     
-    <!-- <action name="homePageDataPapulateAction" class="com.community.actions.useractions.adminactions.accountmanagement.HomePageDataPapulateAction" >
-    <result name="loginsuccess" >/editusersaccount.jsp</result>  -->
+    <action name="homePageDataPapulateAction" class="com.community.actions.useractions.adminactions.accountmanagement.HomePageDataPapulateAction" >
+    <result name="loginsuccess111" >/editusersaccount.jsp</result> 
     <!-- this where you are direct after edit and delete accounts -->
-    <!-- </action> -->
+    </action>
   
 <!-- ////////////////////delete user ////////////////////////// -->
-<action name="deleteAction" class="com.community.actions.useractions.adminactions.accountmanagement.DeleteAction" >  
-<result name="deletesuccess" type="redirect" >/homePageDataPapulateAction</result>
-<result name="errorsuccess">/error.jsp</result>
-</action>
+    <action name="deleteAction" class="com.community.actions.useractions.adminactions.accountmanagement.DeleteAction" >  
+        <result name="deletesuccess" type="redirect" >/homePageDataPapulateAction</result>
+        <result name="errorsuccess">/error.jsp</result>
+    </action>
 
 <!-- /////////////////////register user////////////////////////////// -->
-<action name="registerUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.RegisterUserAction" >  
-<result name="registerusersuccess" >/success.jsp</result>
-<result name="error_user_register">/error.jsp</result>
-</action>
+    <action name="registerUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.RegisterUserAction" >  
+        <result name="registerusersuccess" >/success.jsp</result>
+        <result name="error_user_register">/error.jsp</result>
+    </action>
 <!-- /////////////////////transfer data for user update////////////////////////////// -->
-<action name="updateUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateUserAction" >  
-<result name="updateusersuccess" >/update.jsp</result>
-<result name="error_retrieve_data">/error.jsp</result>
-</action>
+    <action name="updateUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateUserAction" >  
+        <result name="updateusersuccess" >/update.jsp</result>
+        <result name="error_retrieve_data">/error.jsp</result>
+    </action>
 
 <!-- /////////////////////update the user infromation////////////////////////////// -->
-<action name="updateAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateAction" >  
-<result name="updateusersuccess1" type="redirect" >/homePageDataPapulateAction</result>
-<result name="error_update_user">/error.jsp</result>
-</action>
+    <action name="updateAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateAction" >  
+        <result name="updateusersuccess1" type="redirect" >/homePageDataPapulateAction</result>
+        <result name="error_update_user">/error.jsp</result>
+    </action>
 
 
 <!-- ///////////////////////////////search users////////////////////////////////// -->
 
-<action name="searchUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.SearchUsersAction" >  
-<result name="searchusersuccess" >/searchuser.jsp</result>
-<!-- <result name="searchusersuccess">/error.jsp</result> -->
-</action>
+    <action name="searchUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.SearchUsersAction" >  
+        <result name="searchusersuccess" >/searchuser.jsp</result>
+        <!-- <result name="searchusersuccess">/error.jsp</result> -->
+    </action>
 
 <!-- ////////////////////////////////////view other profile///////////////////////////// -->
 
-<action name="viewOtherUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.ViewOtherUserAction" >  
-  <result name="viewprofile" >/viewotherprofile.jsp</result>
-  <!-- <result name="error_retrieve_data">/error.jsp</result> -->
-</action>
+    <action name="viewOtherUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.ViewOtherUserAction" >  
+        <result name="viewprofile" >/viewotherprofile.jsp</result>
+        <!-- <result name="error_retrieve_data">/error.jsp</result> -->
+    </action>
 
 <!-- ////////////////////////////////forget password///////////////////////////////// -->
-<action name="forgetPasswordAction" class="com.community.actions.useractions.standardactions.accountmanagement.ForgetPasswordAction" >  
-<result name="resetpasswordsent" >/forgotpasswordsent.jsp</result>
-<result name="error_retrieve_data">/error.jsp</result>
-</action>
+    <action name="forgetPasswordAction" class="com.community.actions.useractions.standardactions.accountmanagement.ForgetPasswordAction" >  
+        <result name="resetpasswordsent" >/forgotpasswordsent.jsp</result>
+        <result name="error_retrieve_data">/error.jsp</result>
+    </action>
 
 
 

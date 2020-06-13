@@ -53,10 +53,13 @@ public class LoginAction extends ActionSupport {
                 {       
                 // gets the user id
                    
-                    profile_id = UserMgmtDao.getUserId(userInfo); //gets the userid that login
+                    profile_id = UserMgmtDao.getUserId(userInfo); //gets the userid  that login 
                     System.out.println("the user idssssssss = " +  profile_id);
+
+                    
                     retriveProfileDataForOthers(profile_id); //retrives the data of the user id
-                    ServletActionContext.getRequest().getSession().setAttribute("login_user", profile_id); //sets the session id
+                    ServletActionContext.getRequest().getSession().setAttribute("login_user", profile_id); //sets the user id to the session
+                    
 
 
                     // user_id_session =   (int)ServletActionContext.getRequest().getSession().getAttribute("login_user");
@@ -107,6 +110,18 @@ public class LoginAction extends ActionSupport {
             city = user_data.getCity();
             contact_no = user_data.getContact_no();
             address = user_data.getAddress();
+
+
+            // System.out.println(user_data);
+            // System.out.println(email_Address);
+            // System.out.println(last_Name);
+            // System.out.println(midle_Name);
+            // System.out.println(birthday);
+            // System.out.println(gender);
+            // System.out.println(country);
+            // System.out.println(city);
+            // System.out.println(contact_no);
+
     
             return user_data;
         }
@@ -246,23 +261,23 @@ public class LoginAction extends ActionSupport {
 
 
 
-    @Override
-    public String toString() {
-        return "{" +
-            " email_Address='" + getEmail_Address() + "'" +
-            ", password='" + getPassword() + "'" +
-            ", user_id='" + getUser_id() + "'" +
-            ", first_Name='" + getFirst_Name() + "'" +
-            ", last_Name='" + getLast_Name() + "'" +
-            ", midle_Name='" + getMidle_Name() + "'" +
-            ", birthday='" + getBirthday() + "'" +
-            ", country='" + getCountry() + "'" +
-            ", city='" + getCity() + "'" +
-            ", contact_no='" + getContact_no() + "'" +
-            ", address='" + getAddress() + "'" +
-            ", gender='" + getGender() + "'" +
-            "}";
-    }
+    // @Override
+    // public String toString() {
+    //     return "{" +
+    //         " email_Address='" + getEmail_Address() + "'" +
+    //         ", password='" + getPassword() + "'" +
+    //         ", user_id='" + getUser_id() + "'" +
+    //         ", first_Name='" + getFirst_Name() + "'" +
+    //         ", last_Name='" + getLast_Name() + "'" +
+    //         ", midle_Name='" + getMidle_Name() + "'" +
+    //         ", birthday='" + getBirthday() + "'" +
+    //         ", country='" + getCountry() + "'" +
+    //         ", city='" + getCity() + "'" +
+    //         ", contact_no='" + getContact_no() + "'" +
+    //         ", address='" + getAddress() + "'" +
+    //         ", gender='" + getGender() + "'" +
+    //         "}";
+    // }
 
 
     

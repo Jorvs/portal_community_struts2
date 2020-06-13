@@ -3,6 +3,8 @@ package com.community.actions.useractions.standardactions.accountmanagement;
 import com.community.bean.usersbean.User;
 import com.community.dao.usersdao.standardao.UserMgmtDao;
 
+import org.apache.struts2.ServletActionContext;
+
 public class ViewProfileAction {
 
 
@@ -21,16 +23,17 @@ public class ViewProfileAction {
     String address;
     String gender;
     
-
+    int user_id_session;
    
     
     public String execute(){
 
         
-        retriveProfileData();
-        
+        retriveProfileData();   // retrives the data of the profile of the user that is logon
 
-        String statusCode = "viewprofile";
+
+
+             String statusCode = "viewprofile";
         
         return statusCode;
 
@@ -39,7 +42,12 @@ public class ViewProfileAction {
 
     public Object retriveProfileData(){
 
-        User user_data = UserMgmtDao.getProfileDataById(user_id);
+        // gets the user_id from the ssession 
+        user_id_session =   (int)ServletActionContext.getRequest().getSession().getAttribute("login_user");
+
+
+        //  recives the user_id and retrives the profile date of the user login
+        User user_data = UserMgmtDao.getProfileDataById(user_id_session);
 
         user_id = user_data.getUser_id();
         email_Address = user_data.getEmail_Address();
@@ -55,7 +63,19 @@ public class ViewProfileAction {
         address = user_data.getAddress();
 
         return user_data;
+
+
     }
+
+
+
+
+
+
+
+
+
+    
     
 
 

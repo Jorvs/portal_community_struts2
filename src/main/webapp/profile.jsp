@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit"  href="update.jsp" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        <!-- <input type="submit"  href="update.jsp" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> -->
                     </div>
                 </div>
                 <div class="row">
@@ -90,46 +90,92 @@
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>Jorvs </p>
-                                            </div>
-                                        </div>
+                                       
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Jorvs Uchiha</p>
+                                                <p><s:label name="first_Name"></s:label> <s:label name="last_Name"></s:label></p>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Midle Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><s:label name="midle_Name"> </s:label></p>
+                                            </div>
+                                        </div>
+
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Jorvs@gmail.com</p>
+                                                <p><s:label name="email_Address"> </s:label></p>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>123456789</p>
+                                                <p><s:label name="contact_no"> </s:label></p>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Profession</label>
+                                                <label>Gender</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p><s:label name="gender"> </s:label></p>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Birthday</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><s:label name="birthday"> </s:label></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Country</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><s:label name="country"> </s:label></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>City</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><s:label name="city"> </s:label></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Address</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><s:label name="address"> </s:label></p>
+                                            </div>
+                                        </div>
+
+
+
+
+
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                         <div class="row">
@@ -186,23 +232,7 @@
         </div>
 
 
-        <h1>Welcome  <s:property value="user_id_session" /> </h1>
-
-        <h2>Update Form</h2>
-		<s:form		action="updateAction" method="post" >
-		<s:textfield name="user_id"  label="user_id" type="hidden" ></s:textfield>
-		<s:textfield name="email_Address" label="Email/User" ></s:textfield>
-		<s:textfield name="first_Name" label="Your First Name" ></s:textfield>
-		<s:textfield name="last_Name" label="Your Last Name" ></s:textfield>
-		<s:textfield name="midle_Name" label="Your Midle Name" ></s:textfield>
-		<s:textfield name="birthday" label="Birthday" placeholder="YYYY-MM-DD" ></s:textfield>
-		<s:select 	 name="gender" label="Gender" list="{'Male','Female'}"></s:select>
-		<s:textfield name="country" label="Country" ></s:textfield>
-		<s:textfield name="city" label="City" ></s:textfield>
-		<s:textfield name="contact_no" label="Contact no" ></s:textfield>
-		<s:textfield name="address" label="Address" ></s:textfield>
-		<s:submit   value="Update_User"/>
-		</s:form>
+       
         
          <!-- this is the footer link -->
         <jsp:include page="/userfooter.jsp"></jsp:include>

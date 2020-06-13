@@ -192,7 +192,6 @@
 		<s:form		action="updateAction" method="post" >
 		<s:textfield name="user_id"  label="user_id" type="hidden" ></s:textfield>
 		<s:textfield name="email_Address" label="Email/User" ></s:textfield>
-		<s:textfield name="password" label="Password" type="password" ></s:textfield>
 		<s:textfield name="first_Name" label="Your First Name" ></s:textfield>
 		<s:textfield name="last_Name" label="Your Last Name" ></s:textfield>
 		<s:textfield name="midle_Name" label="Your Midle Name" ></s:textfield>

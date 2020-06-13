@@ -62,6 +62,19 @@ public class ViewProfileAction {
         contact_no = user_data.getContact_no();
         address = user_data.getAddress();
 
+
+        System.out.println("email= " + email_Address);
+        System.out.println("first name= " + first_Name);
+        System.out.println("lastname= " + last_Name);
+        System.out.println("midlename= " + midle_Name);
+        System.out.println("birthday= " +birthday);
+        System.out.println("gender= " +gender);
+        System.out.println("country= " +country);
+        System.out.println("city= " +city);
+        System.out.println("contact= " +contact_no);
+        System.out.println("address= " +address);
+
+
         return user_data;
 
 

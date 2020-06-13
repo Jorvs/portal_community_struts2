@@ -70,19 +70,20 @@ public class User {
 
    
      // used for view user profile data
-     public User(int user_id, String email_Address, String first_Name, String last_Name, String midle_Name, String birthday, String country, String city, String contact_no, String address, String gender)
+     public User(String email_Address, String first_Name, String last_Name, String midle_Name, String birthday, String gender , String country, String city, String contact_no, String address)
      {
-        this.user_id = user_id;
+        
         this.email_Address = email_Address;
         this.first_Name = first_Name;
         this.last_Name = last_Name;
         this.midle_Name = midle_Name;
         this.birthday = birthday;
+        this.gender = gender;
         this.country = country;
         this.city = city;
         this.contact_no = contact_no;
         this.address = address;
-        this.gender = gender;
+        
     }
 
 

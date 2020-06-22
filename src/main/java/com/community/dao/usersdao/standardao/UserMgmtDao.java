@@ -353,4 +353,74 @@ public static User getProfileDataById(int user_id){
 
 
 
+
+
+// update user profile data
+	public static int updateUserProfileData(User  userinfo,int user_id_session) {
+        int status =0;
+        
+        // User userinfo = new User();
+
+        Connection  conn = null;
+
+        try{
+
+       
+            
+        
+            conn = DConnection.getConnectionToMySQL();
+          String query = "UPDATE user_table  SET " 
+                     
+                        +    "email_Address = ?, " 
+                        +    "first_Name = ?, "
+                        +    "last_Name = ?, "
+                        +    "midle_Name = ?, "
+                        +    "birthday = ?, "
+                        +    "country = ?, "
+                        +    "city = ?, "
+                        +    "contact_no = ?, "
+                        +    "address = ?, "
+                        +    "gender = ? " 
+                     
+                        +    "WHERE user_id = ?  ";
+           PreparedStatement ps = conn.prepareStatement(query);
+           ps.setString(1,  userinfo.getEmail_Address());
+           ps.setString(2,  userinfo.getFirst_Name());
+           ps.setString(3,  userinfo.getLast_Name());
+           ps.setString(4,  userinfo.getMidle_Name());
+           ps.setString(5,  userinfo.getBirthday());
+           ps.setString(6,  userinfo.getCountry());
+           ps.setString(7,  userinfo.getCity());
+           ps.setString(8,  userinfo.getContact_no());
+           ps.setString(9, userinfo.getAddress());
+           ps.setString(10, userinfo.getGender());
+           // where condition target id
+           ps.setInt(11, user_id_session);
+           
+            System.out.println(ps);
+            status = ps.executeUpdate();
+           
+     
+           
+       }catch(Exception e)
+       {
+           e.printStackTrace();
+           System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+           System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+       }finally
+       {
+           
+               DConnection.closeConnection(conn);
+          
+        }// finally end
+       
+        return status;
+
+	}// end of updateUser
+
+
+
+
+
+
 }// end of UserMgmtDao

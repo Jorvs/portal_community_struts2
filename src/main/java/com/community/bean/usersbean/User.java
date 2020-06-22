@@ -17,6 +17,14 @@ public class User {
     String address;
     String gender;
 
+    // addtional variable for update profile
+
+    String user_company_name;
+    String company_duration_work;
+    String position_worked;
+    String year_worked;
+    String salary;
+
 
     
 
@@ -37,7 +45,8 @@ public class User {
 
    
     // used for update the account of a registered user
-    public User(String email_Address, String password, String first_Name, String last_Name, String midle_Name, String birthday, String country, String city, String contact_no, String address, String gender) {
+    public User(String email_Address, String password, String first_Name, String last_Name, String midle_Name, String birthday, String country, String city, String contact_no, String address, String gender, String user_company_name,String company_duration_work, String position_worked,String year_worked,String salary) {
+
         this.email_Address = email_Address;
         this.password = password;
         this.first_Name = first_Name;
@@ -49,6 +58,14 @@ public class User {
         this.contact_no = contact_no;
         this.address = address;
         this.gender = gender;
+
+        this.user_company_name = user_company_name;
+        this.company_duration_work = company_duration_work;
+        this.position_worked = position_worked;
+        this.year_worked = year_worked;
+        this.salary = salary;
+
+        
     }
 
     // used for registering a  a new user(not sure yet)
@@ -85,6 +102,32 @@ public class User {
         this.address = address;
         
     }
+
+
+    // this is use for view the data before update
+    // public User()
+    // {
+
+        
+       
+    //    this.email_Address = email_Address;
+    //    this.first_Name = first_Name;
+    //    this.last_Name = last_Name;
+    //    this.midle_Name = midle_Name;
+    //    this.birthday = birthday;
+    //    this.gender = gender;
+    //    this.country = country;
+    //    this.city = city;
+    //    this.contact_no = contact_no;
+    //    this.address = address;
+
+    //    // different table
+    //    this.user_company_name = user_company_name;
+    //    this.company_duration_work = company_duration_work;
+    //    this.position_worked = position_worked;
+    //    this.salary = salary;
+
+    // }
 
 
 
@@ -188,6 +231,58 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    public String getUser_company_name() {
+        return this.user_company_name;
+    }
+
+    public void setUser_company_name(String user_company_name) {
+        this.user_company_name = user_company_name;
+    }
+
+    public String getCompany_duration_work() {
+        return this.company_duration_work;
+    }
+
+    public void setCompany_duration_work(String company_duration_work) {
+        this.company_duration_work = company_duration_work;
+    }
+
+    public String getPosition_worked() {
+        return this.position_worked;
+    }
+
+    public void setPosition_worked(String position_worked) {
+        this.position_worked = position_worked;
+    }
+
+    public String getYear_worked() {
+        return this.year_worked;
+    }
+
+    public void setYear_worked(String year_worked) {
+        this.year_worked = year_worked;
+    }
+
+    public String getSalary() {
+        return this.salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
 
 
 

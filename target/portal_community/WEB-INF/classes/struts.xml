@@ -23,12 +23,30 @@
             <result name="input" >/login.jsp</result> 
     </action>
 
+        <!-- retrives the data and on your profile page -->
         <!-- when login will be redirect to this action to execute action and redirect to to profile.jsp -->
     <action name="viewProfileAction" class="com.community.actions.useractions.standardactions.accountmanagement.ViewProfileAction" >  
         <result name="viewprofile"  >/profile.jsp</result>
         <!-- <result name="input" >/login.jsp</result>  -->
     </action>
 
+    
+     <!-- retrives the data for update on the profile and redirects to another action -->
+    <action name="updateRetriveDataProfileAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateRetriveDataProfileAction" >  
+        <result name="retrivedataforupdate" >/updateprofile.jsp</result>
+        <!-- <result name="input" >/login.jsp</result>  -->
+    </action>
+    
+    <!-- updates profile data and redirect and sends it back to update page to see changes -->
+    <action name="updateSaveProfileDataAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateSaveProfileDataAction" >  
+        <result name="saveupdateprofiledata" type="redirect" >/viewProfileAction</result>
+        <!-- <result name="input" >/login.jsp</result>  -->
+    </action>
+
+    <!-- redirects to the updateprofile page for profile for updating the account -->
+    <!-- <action name="viewProfileUpdateAction" class="com.community.actions.useractions.standardactions.accountmanagement.ViewProfileAction" > <result name="viewupdateprofile"  ></result>
+       
+    </action> -->
 
 
         
@@ -55,7 +73,7 @@
         <result name="error_retrieve_data">/error.jsp</result>
     </action>
 
-<!-- /////////////////////update the user infromation////////////////////////////// -->
+<!-- /////////////////////update the user  infromation for admin////////////////////////////// -->
     <action name="updateAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateAction" >  
         <result name="updateusersuccess1" type="redirect" >/homePageDataPapulateAction</result>
         <result name="error_update_user">/error.jsp</result>

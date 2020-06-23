@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.community.actions.ActionTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.28 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.425 sec

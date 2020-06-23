@@ -357,7 +357,9 @@ public static User getProfileDataById(int user_id){
 
 // update user profile data
 	public static int updateUserProfileData(User  userinfo,int user_id_session) {
-        int status =0;
+        int status = 0;
+        int adddata = 0;
+        int updateresult = 0;
         
         // User userinfo = new User();
 
@@ -368,8 +370,8 @@ public static User getProfileDataById(int user_id){
        
             
         
-            conn = DConnection.getConnectionToMySQL();
-          String query = "UPDATE user_table  SET " 
+          conn = DConnection.getConnectionToMySQL();
+          String query1 = "UPDATE user_table  SET " 
                      
                         +    "email_Address = ?, " 
                         +    "first_Name = ?, "
@@ -383,7 +385,8 @@ public static User getProfileDataById(int user_id){
                         +    "gender = ? " 
                      
                         +    "WHERE user_id = ?  ";
-           PreparedStatement ps = conn.prepareStatement(query);
+           PreparedStatement ps = conn.prepareStatement(query1);
+          
            ps.setString(1,  userinfo.getEmail_Address());
            ps.setString(2,  userinfo.getFirst_Name());
            ps.setString(3,  userinfo.getLast_Name());
@@ -396,9 +399,47 @@ public static User getProfileDataById(int user_id){
            ps.setString(10, userinfo.getGender());
            // where condition target id
            ps.setInt(11, user_id_session);
+
+
+           ////////////////////Insert addtional data of work experaince to another table///////////////////
+
+           
+
+           String query2 = "INSERT INTO profile_work_experiance_table " 
+           +   "("
+           +    "user_id, " 
+           +    "user_company_name, " 
+           +    "company_duration_work, "
+           +    "position_worked, "
+           +    "year_worked, "
+           +    "salary "
+          
+           +    ")"
+           +    " VALUES (?,?,?,?,?,? ) ";
+
+           PreparedStatement ps1 = conn.prepareStatement(query2);
+           ps1.setInt(1, user_id_session);
+           ps1.setString(2, userinfo.getUser_company_name());
+           ps1.setString(3, userinfo.getCompany_duration_work());
+           ps1.setString(4, userinfo.getPosition_worked());
+           ps1.setString(5, userinfo.getYear_worked());
+           ps1.setString(6, userinfo.getSalary());
            
             System.out.println(ps);
+            System.out.println(ps1);
+
+
+
             status = ps.executeUpdate();
+            adddata = ps1.executeUpdate();
+
+
+
+           
+            if(status == 1 || adddata == 1){
+                updateresult = 1;
+            }
+             
            
      
            
@@ -414,7 +455,7 @@ public static User getProfileDataById(int user_id){
           
         }// finally end
        
-        return status;
+     return updateresult;
 
 	}// end of updateUser
 

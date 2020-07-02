@@ -43,6 +43,16 @@ public class User {
         this.last_Name = last_Name;
     }
 
+    public User(String user_company_name,String company_duration_work,String position_worked,String year_worked,String salary){
+
+
+        this.user_company_name = user_company_name;
+        this.company_duration_work = company_duration_work;
+        this.position_worked = position_worked;
+        this.year_worked = year_worked;
+        this.salary = salary;
+    }
+
    
     // used for update the account of a registered user
     public User(String email_Address, String password, String first_Name, String last_Name, String midle_Name, String birthday, String country, String city, String contact_no, String address, String gender, String user_company_name,String company_duration_work, String position_worked,String year_worked,String salary) {

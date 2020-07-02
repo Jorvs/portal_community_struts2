@@ -33,17 +33,21 @@ public class RegisterUserAction extends ActionSupport {
 		User welcome_obj = null;
 		String statuscode;
 		
-        int recInserted = UserMgmtDao.registerUser(userinfo);
-        if(recInserted == 1)
+		int recInserted = UserMgmtDao.registerUser(userinfo);
+		
+        if(recInserted >= 1)
         {
-			welcome_obj = UserMgmtDao.showUserData(user_id);
+			System.out.println("condition have been met RegisterAction recieved The last id inserted is = "  + recInserted);
+			int	user_id_work_experiance_inserted = UserMgmtDao.registerUserIDWorkExperianceTable(recInserted);
             return statuscode = "registerusersuccess";
         }
         else
         {
 			message = "error register something went wrong";
-			return statuscode = "error";
-        }
+			return statuscode = "error_user_register";
+		}
+		
+		
 
 	}
 	

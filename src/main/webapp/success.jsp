@@ -109,7 +109,7 @@
 <body>
 
 	<!-- this is the header which contains the navigation bar  and header tag -->
-	<%@ include file="userheader.jsp" %>
+	<%@ include file="publicheader.jsp" %>
 
 
 <div class="welcome-form">

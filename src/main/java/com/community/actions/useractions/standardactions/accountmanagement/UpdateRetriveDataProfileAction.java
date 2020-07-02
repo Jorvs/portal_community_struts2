@@ -38,8 +38,10 @@ public class UpdateRetriveDataProfileAction {
 
         
         retriveProfileDataForUpdate();   // retrives the data of the profile of the user that is logon
-
-                String statusCode = "retrivedataforupdate";
+        retriveProfileWorkExperianceForUpdate(); // retives the work experiance
+        
+        
+        String statusCode = "retrivedataforupdate";
         
         return statusCode;
 
@@ -77,11 +79,7 @@ public class UpdateRetriveDataProfileAction {
      
         // diffrent table
         
-        user_company_name = user_data.getUser_company_name();
-        company_duration_work = user_data.getCompany_duration_work();
-        position_worked = user_data.getPosition_worked();
-        year_worked = user_data.getYear_worked();
-        salary = user_data.getSalary();
+        
 
 
        
@@ -111,7 +109,25 @@ public class UpdateRetriveDataProfileAction {
     }
     
 
+public Object retriveProfileWorkExperianceForUpdate(){
 
+
+         user_id_session =   (int)ServletActionContext.getRequest().getSession().getAttribute("login_user");
+
+
+    //  recives the user_id and retrives the profile date of the user login
+         User work_experiance_data = UserMgmtDao.getProfileWorkExperianceDataById(user_id_session);
+
+
+
+        user_company_name = work_experiance_data.getUser_company_name();
+        company_duration_work = work_experiance_data.getCompany_duration_work();
+        position_worked = work_experiance_data.getPosition_worked();
+        year_worked = work_experiance_data.getYear_worked();
+        salary = work_experiance_data.getSalary();
+
+    return work_experiance_data;
+}
 
 
 

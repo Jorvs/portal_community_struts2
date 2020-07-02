@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import com.community.bean.usersbean.RegisterInfo;
 import com.community.bean.usersbean.Search;
 import com.community.bean.usersbean.User;
 import com.community.dbconnection.DConnection;
+
 
 public class UserMgmtDao {
 
@@ -115,7 +117,8 @@ public class UserMgmtDao {
 // used for registration of users
 public static int registerUser(RegisterInfo userinfo){
 
-    int status = 0;
+    // int status = 0;
+    int generatedKey = 0;
     Connection  conn = null;
 
     try{
@@ -136,7 +139,7 @@ public static int registerUser(RegisterInfo userinfo){
                     +    "gender " 
                     +    ")"
                     +    " VALUES (?,?,?,?,?,?,?,?,?,?,?) ";
-       PreparedStatement ps = conn.prepareStatement(query);
+       PreparedStatement ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
        ps.setString(1, userinfo.getEmail_Address());
        ps.setString(2, userinfo.getPassword());
        ps.setString(3, userinfo.getFirst_Name());
@@ -150,7 +153,15 @@ public static int registerUser(RegisterInfo userinfo){
        ps.setString(11, userinfo.getGender());
        
        System.out.println(ps);
-       status = ps.executeUpdate();
+       ps.executeUpdate();
+
+        ResultSet rs = ps.getGeneratedKeys();
+        // int generatedKey = 0;
+            if (rs.next()) {
+                generatedKey = rs.getInt(1);
+            }
+ 
+System.out.println("From the fuction dao  Inserted record's ID: " + generatedKey);
        
       
      
@@ -167,7 +178,55 @@ public static int registerUser(RegisterInfo userinfo){
       
     }// finally end
    
-    return status;
+    return generatedKey;
+}// end of RegisterUser accounts
+
+
+public static int registerUserIDWorkExperianceTable(int recInserted){
+
+    // int status = 0;
+    int generatedKey = 0;
+    Connection  conn = null;
+
+    try{
+    
+        conn = DConnection.getConnectionToMySQL();
+      String query = "INSERT INTO profile_work_experiance_table " 
+                    +   "("
+                    +   "user_id" 
+                    +   ")"
+                    +   "VALUES (?) ";
+       PreparedStatement ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+       ps.setInt(1, recInserted);
+      
+       
+       System.out.println(ps);
+       ps.executeUpdate();
+
+        ResultSet rs = ps.getGeneratedKeys();
+        // int generatedKey = 0;
+            if (rs.next()) {
+                generatedKey = rs.getInt(1);
+            }
+ 
+        System.out.println("last Id insert on  work experiance table " + generatedKey);
+       
+      
+     
+       
+   }catch(Exception e)
+   {
+       e.printStackTrace();
+       System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+       System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+   }finally
+   {
+       
+         DConnection.closeConnection(conn);
+      
+    }// finally end
+   
+    return generatedKey;
 }// end of RegisterUser accounts
 
 
@@ -351,6 +410,51 @@ public static User getProfileDataById(int user_id){
 
 
 
+// retrive profile work experiance when the user views his own profile
+public static User getProfileWorkExperianceDataById(int user_id){
+
+        
+    User userObj = null;
+    // boolean validStatus = false;
+    Connection  conn = null;
+    
+    try{
+        conn = DConnection.getConnectionToMySQL();
+        String query = "SELECT * " 
+                     + "FROM profile_work_experiance_table " 
+                     + "WHERE user_id = ? ";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setInt(1, user_id);
+
+        ResultSet rs = ps.executeQuery();
+        // System.out.println(rs);
+        while(rs.next())
+        {
+            // if all tables where selected the number inside the parenthesis are there number if the table of the database
+             userObj = new User(rs.getString(3),rs.getString(4), rs.getString(5), rs.getString(6),rs.getString(7));
+            
+            // System.out.println(userList);
+        }
+    }catch(Exception e)
+    {
+        e.printStackTrace();
+        System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+        System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+    }finally
+    {
+        
+            DConnection.closeConnection(conn);
+       
+     }// finally end
+    
+        return userObj;
+
+
+}// end of getUserByID
+
+
+
+
 
 
 
@@ -405,26 +509,26 @@ public static User getProfileDataById(int user_id){
 
            
 
-           String query2 = "INSERT INTO profile_work_experiance_table " 
-           +   "("
-           +    "user_id, " 
-           +    "user_company_name, " 
-           +    "company_duration_work, "
-           +    "position_worked, "
-           +    "year_worked, "
-           +    "salary "
-          
-           +    ")"
-           +    " VALUES (?,?,?,?,?,? ) ";
+          String query2 = "UPDATE  profile_work_experiance_table " 
+                        +   "SET "
+                      
+                        +    "user_company_name = ?, " 
+                        +    "company_duration_work = ?, "
+                        +    "position_worked = ?, "
+                        +    "year_worked = ?, "
+                        +    "salary = ? "
+                      
+                       
+                        +    "WHERE user_id = ? ";
 
            PreparedStatement ps1 = conn.prepareStatement(query2);
-           ps1.setInt(1, user_id_session);
-           ps1.setString(2, userinfo.getUser_company_name());
-           ps1.setString(3, userinfo.getCompany_duration_work());
-           ps1.setString(4, userinfo.getPosition_worked());
-           ps1.setString(5, userinfo.getYear_worked());
-           ps1.setString(6, userinfo.getSalary());
-           
+          
+           ps1.setString(1, userinfo.getUser_company_name());
+           ps1.setString(2, userinfo.getCompany_duration_work());
+           ps1.setString(3, userinfo.getPosition_worked());
+           ps1.setString(4, userinfo.getYear_worked());
+           ps1.setString(5, userinfo.getSalary());
+           ps1.setInt(6, user_id_session);
             System.out.println(ps);
             System.out.println(ps1);
 

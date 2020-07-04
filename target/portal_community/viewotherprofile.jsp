@@ -47,10 +47,10 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        Kshiti Ghelani
+                                        <s:label name="first_Name"></s:label>
                                     </h5>
                                     <h6>
-                                        Web Developer and Designer
+                                        <s:label name="first_Name"></s:label>
                                     </h6>
                                     <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -69,30 +69,35 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="profile-work">
-                            <p>WORK LINK</p>
-                            <a href="">Website Link</a><br/>
-                            <a href="">Bootsnipp Profile</a><br/>
-                            <a href="">Bootply Profile</a>
-                            <p>SKILLS</p>
-                            <a href="">Web Designer</a><br/>
-                            <a href="">Web Developer</a><br/>
-                            <a href="">WordPress</a><br/>
-                            <a href="">WooCommerce</a><br/>
-                            <a href="">PHP, .Net</a><br/>
+                        <div class="profile-work ">
+                           
+                            <p>WORK Experiance:</p>
+                                <div>
+                                    <label>Company Name:</label> 
+                                    <s:label class="font-weight-bold" name="user_company_name"></s:label>
+                                </div>  
+                                <div>
+                                    <label>Company duration work:</label> 
+                                    <s:label class="font-weight-bold" name="company_duration_work"></s:label>
+                                </div>
+                                <div>
+                                    <label>position worked:</label>  
+                                    <s:label class="font-weight-bold" name="position_worked"></s:label>
+                                </div>   
+                                <div>
+                                    <label>year worked:</label>  
+                                    <s:label class="font-weight-bold" name="year_worked"></s:label>
+                                </div>
+                                <div>   
+                                    <label>salary:</label>
+                                    <s:label class="font-weight-bold" name="salary"></s:label>
+                                </div>    
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Nick name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <!-- <p>Kshiti123</p> -->
-                                            </div>
-                                        </div>
+                                      
 
                                         <div class="row">
                                             <div class="col-md-6">

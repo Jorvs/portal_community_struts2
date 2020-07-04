@@ -18,7 +18,7 @@ if(session.getAttribute("login_user") == null)
   <!-- paste  the button here of you want it on the appear on the right --> 
   <a href="#" class="navbar-brand">Community Portal</a> 
 
-      <h1>Welcome  <s:property value="user_id_session" /> </h1>
+      <h1>Welcome   </h1>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" 
   data-target="#myTogglerNav" aria-controls="myTogglerNav" aria-expanded="false" aria-label="Toggle navigation"> 

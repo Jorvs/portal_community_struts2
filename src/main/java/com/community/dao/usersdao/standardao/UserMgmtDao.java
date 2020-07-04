@@ -288,18 +288,23 @@ public static User getUserDataByID(int user_id){
     
     try{
          conn = DConnection.getConnectionToMySQL();
-       String query = "SELECT * " 
-                    + "FROM user_table " 
-                    + "WHERE user_id = ? ";
+       String query = "SELECT *  "
+           + "FROM user_table  " 
+           + "LEFT JOIN " 
+           + "profile_work_experiance_table ON user_table.user_id = profile_work_experiance_table.user_id "
+           + " WHERE " 
+           + "user_table.user_id = ?";
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setInt(1, user_id);
 
         ResultSet rs = ps.executeQuery();
-        // System.out.println(rs);
+        System.out.println(ps);
+        System.out.println(rs);
         while(rs.next())
         {
             // if all tables where selected the number inside the parenthesis are there number if the table of the database
-            userObj = new User(rs.getString(4),rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14));
+            userObj = new User(rs.getString(4),rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),  rs.getString(17),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),rs.getString(21));
+            System.out.println("displayed from the loop: " + rs);
             
            
             // System.out.println(userList);
@@ -368,44 +373,44 @@ public static int getUserId(LoginInfo userInfo) throws Exception {
 
 
 // retrive profile data when the user views his own profile
-public static User getProfileDataById(int user_id){
+// public static User getProfileDataById(int user_id){
 
         
-    User userObj = null;
-    // boolean validStatus = false;
-    Connection  conn = null;
+//     User userObj = null;
+//     // boolean validStatus = false;
+//     Connection  conn = null;
     
-    try{
-        conn = DConnection.getConnectionToMySQL();
-        String query = "SELECT * " 
-                     + "FROM user_table " 
-                     + "WHERE user_id = ? ";
-        PreparedStatement ps = conn.prepareStatement(query);
-        ps.setInt(1, user_id);
+//     try{
+//         conn = DConnection.getConnectionToMySQL();
+//         String query = "SELECT * " 
+//                      + "FROM user_table " 
+//                      + "WHERE user_id = ? ";
+//         PreparedStatement ps = conn.prepareStatement(query);
+//         ps.setInt(1, user_id);
 
-        ResultSet rs = ps.executeQuery();
-        // System.out.println(rs);
-        while(rs.next())
-        {
-            // if all tables where selected the number inside the parenthesis are there number if the table of the database
-             userObj = new User(rs.getString(4),rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14));
+//         ResultSet rs = ps.executeQuery();
+//         // System.out.println(rs);
+//         while(rs.next())
+//         {
+//             // if all tables where selected the number inside the parenthesis are there number if the table of the database
+//              userObj = new User(rs.getString(4),rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14));
             
-            // System.out.println(userList);
-        }
-    }catch(Exception e)
-    {
-        e.printStackTrace();
-        System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
-        System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
-    }finally
-    {
+//             // System.out.println(userList);
+//         }
+//     }catch(Exception e)
+//     {
+//         e.printStackTrace();
+//         System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+//         System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+//     }finally
+//     {
         
-            DConnection.closeConnection(conn);
+//             DConnection.closeConnection(conn);
        
-     }// finally end
+//      }// finally end
     
-     return userObj;
-}// end of getUserByID
+//      return userObj;
+// }// end of getUserByID
 
 
 

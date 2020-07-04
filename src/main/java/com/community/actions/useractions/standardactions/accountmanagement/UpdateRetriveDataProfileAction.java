@@ -60,7 +60,7 @@ public class UpdateRetriveDataProfileAction {
 
 
         //  recives the user_id and retrives the profile date of the user login
-        User user_data = UserMgmtDao.getProfileDataById(user_id_session);
+        User user_data = UserMgmtDao.getUserDataByID(user_id_session);
 
         user_id = user_data.getUser_id();
         email_Address = user_data.getEmail_Address();

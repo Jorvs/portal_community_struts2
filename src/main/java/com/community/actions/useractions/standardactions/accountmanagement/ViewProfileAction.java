@@ -22,6 +22,12 @@ public class ViewProfileAction {
     String contact_no;
     String address;
     String gender;
+
+    String user_company_name;
+    String company_duration_work;
+    String position_worked;
+    String year_worked;
+    String salary;
     
     int user_id_session;
    
@@ -47,7 +53,9 @@ public class ViewProfileAction {
 
 
         //  recives the user_id and retrives the profile date of the user login
-        User user_data = UserMgmtDao.getProfileDataById(user_id_session);
+        User user_data = UserMgmtDao.getUserDataByID(user_id_session);
+        
+
 
         user_id = user_data.getUser_id();
         email_Address = user_data.getEmail_Address();
@@ -62,17 +70,11 @@ public class ViewProfileAction {
         contact_no = user_data.getContact_no();
         address = user_data.getAddress();
 
-
-        // System.out.println("email= " + email_Address);
-        // System.out.println("first name= " + first_Name);
-        // System.out.println("lastname= " + last_Name);
-        // System.out.println("midlename= " + midle_Name);
-        // System.out.println("birthday= " +birthday);
-        // System.out.println("gender= " +gender);
-        // System.out.println("country= " +country);
-        // System.out.println("city= " +city);
-        // System.out.println("contact= " +contact_no);
-        // System.out.println("address= " +address);
+        user_company_name = user_data.getUser_company_name();
+        company_duration_work = user_data.getCompany_duration_work();
+        position_worked = user_data.getPosition_worked();
+        year_worked = user_data.getYear_worked();
+        salary = user_data.getSalary();
 
 
         return user_data;
@@ -85,11 +87,6 @@ public class ViewProfileAction {
 
 
 
-
-
-
-    
-    
 
 
 
@@ -188,6 +185,59 @@ public class ViewProfileAction {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public String getUser_company_name() {
+        return this.user_company_name;
+    }
+
+    public void setUser_company_name(String user_company_name) {
+        this.user_company_name = user_company_name;
+    }
+
+    public String getCompany_duration_work() {
+        return this.company_duration_work;
+    }
+
+    public void setCompany_duration_work(String company_duration_work) {
+        this.company_duration_work = company_duration_work;
+    }
+
+    public String getPosition_worked() {
+        return this.position_worked;
+    }
+
+    public void setPosition_worked(String position_worked) {
+        this.position_worked = position_worked;
+    }
+
+    public String getYear_worked() {
+        return this.year_worked;
+    }
+
+    public void setYear_worked(String year_worked) {
+        this.year_worked = year_worked;
+    }
+
+    public String getSalary() {
+        return this.salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public int getUser_id_session() {
+        return this.user_id_session;
+    }
+
+    public void setUser_id_session(int user_id_session) {
+        this.user_id_session = user_id_session;
+    }
+
+    
+    
+
+
 
 
 

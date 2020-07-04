@@ -21,6 +21,12 @@ public class ViewOtherUserAction extends ActionSupport {
     String contact_no;
     String address;
     String gender;
+
+    String user_company_name;
+    String company_duration_work;
+    String position_worked;
+    String year_worked;
+    String salary;
     
 
    
@@ -44,9 +50,8 @@ public class ViewOtherUserAction extends ActionSupport {
 
         User user_data = UserMgmtDao.getUserDataByID(user_id);
 
-        user_id = user_data.getUser_id();
+        // user_id = user_data.getUser_id();
         email_Address = user_data.getEmail_Address();
-        password = user_data.getPassword();
         first_Name = user_data.getFirst_Name();
         last_Name = user_data.getLast_Name();
         midle_Name = user_data.getMidle_Name();
@@ -56,6 +61,13 @@ public class ViewOtherUserAction extends ActionSupport {
         city = user_data.getCity();
         contact_no = user_data.getContact_no();
         address = user_data.getAddress();
+
+
+        user_company_name = user_data.getUser_company_name();
+        company_duration_work = user_data.getCompany_duration_work();
+        position_worked = user_data.getPosition_worked();
+        year_worked = user_data.getYear_worked();
+        salary = user_data.getSalary();
 
         return user_data;
 
@@ -159,6 +171,49 @@ public class ViewOtherUserAction extends ActionSupport {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public String getUser_company_name() {
+        return this.user_company_name;
+    }
+
+    public void setUser_company_name(String user_company_name) {
+        this.user_company_name = user_company_name;
+    }
+
+    public String getCompany_duration_work() {
+        return this.company_duration_work;
+    }
+
+    public void setCompany_duration_work(String company_duration_work) {
+        this.company_duration_work = company_duration_work;
+    }
+
+    public String getPosition_worked() {
+        return this.position_worked;
+    }
+
+    public void setPosition_worked(String position_worked) {
+        this.position_worked = position_worked;
+    }
+
+    public String getYear_worked() {
+        return this.year_worked;
+    }
+
+    public void setYear_worked(String year_worked) {
+        this.year_worked = year_worked;
+    }
+
+    public String getSalary() {
+        return this.salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    
+
 
 
 

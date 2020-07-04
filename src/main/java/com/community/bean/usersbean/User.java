@@ -97,10 +97,10 @@ public class User {
 
    
      // used for view user profile data
-     public User(String email_Address, String first_Name, String last_Name, String midle_Name, String birthday, String gender , String country, String city, String contact_no, String address)
+     public User(String email_Address, String first_Name, String last_Name, String midle_Name, String birthday, String gender , String country, String city, String contact_no, String address,  String user_company_name,String company_duration_work, String position_worked,  String year_worked,  String salary )
      {
         
-        this.email_Address = email_Address;
+        this.email_Address = email_Address; 
         this.first_Name = first_Name;
         this.last_Name = last_Name;
         this.midle_Name = midle_Name;
@@ -110,34 +110,40 @@ public class User {
         this.city = city;
         this.contact_no = contact_no;
         this.address = address;
+
+      
+        
+
+        this.user_company_name = user_company_name;
+        this.company_duration_work = company_duration_work;
+        this.position_worked = position_worked;
+        this.year_worked = year_worked;
+        this.salary = salary;
         
     }
 
 
     // this is use for view the data before update
-    // public User()
-    // {
-
+    public User(String email_Address,   String first_Name, String last_Name, String midle_Name, String birthday, String country, String city, String contact_no, String address,String gender)
+    {
+       
+       
         
        
-    //    this.email_Address = email_Address;
-    //    this.first_Name = first_Name;
-    //    this.last_Name = last_Name;
-    //    this.midle_Name = midle_Name;
-    //    this.birthday = birthday;
-    //    this.gender = gender;
-    //    this.country = country;
-    //    this.city = city;
-    //    this.contact_no = contact_no;
-    //    this.address = address;
+       this.email_Address = email_Address;
+       this.first_Name = first_Name;
+       this.last_Name = last_Name;
+       this.midle_Name = midle_Name;
+       this.birthday = birthday;
+       this.gender = gender;
+       this.country = country;
+       this.city = city;
+       this.contact_no = contact_no;
+       this.address = address;
 
-    //    // different table
-    //    this.user_company_name = user_company_name;
-    //    this.company_duration_work = company_duration_work;
-    //    this.position_worked = position_worked;
-    //    this.salary = salary;
+       
 
-    // }
+    }
 
 
 

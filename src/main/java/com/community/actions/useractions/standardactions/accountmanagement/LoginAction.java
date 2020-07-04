@@ -35,6 +35,11 @@ public class LoginAction extends ActionSupport {
     String address;
     String gender;
 
+    String user_company_name;
+    String company_duration_work;
+    String position_worked;
+    String year_worked;
+    String salary;
 
     String statusCode;
     int user_id_session;
@@ -57,17 +62,16 @@ public class LoginAction extends ActionSupport {
                     System.out.println("the user idssssssss = " +  profile_id);
 
                     
-                    retriveProfileDataForOthers(profile_id); //retrives the data of the user id
+                    // retriveProfileDataForOthers(profile_id); //retrives the data of the user id
                     ServletActionContext.getRequest().getSession().setAttribute("login_user", profile_id); //sets the user id to the session
                     
-
-
+                    
                     // user_id_session =   (int)ServletActionContext.getRequest().getSession().getAttribute("login_user");
                     // System.out.println("from LoginAction user id from session = " + user_id_session); // does not work
 
 
 
-                    retriveProfileDataForOthers(profile_id);
+                    // retriveProfileDataForOthers(profile_id);
                 
                     return  statusCode = "loginsuccess";
                 }else
@@ -93,38 +97,34 @@ public class LoginAction extends ActionSupport {
 
 
 
-        public Object retriveProfileDataForOthers(int user_id){
+        // public Object retriveProfileDataForOthers(int user_id){
 
-            User user_data = UserMgmtDao.getProfileDataById(user_id);
+        //     User user_data = UserMgmtDao.getUserDataByID(user_id);
             
     
-            user_id = user_data.getUser_id();
-            email_Address = user_data.getEmail_Address();
-            password = user_data.getPassword();
-            first_Name = user_data.getFirst_Name();
-            last_Name = user_data.getLast_Name();
-            midle_Name = user_data.getMidle_Name();
-            birthday = user_data.getBirthday();
-            gender = user_data.getGender();
-            country = user_data.getCountry();
-            city = user_data.getCity();
-            contact_no = user_data.getContact_no();
-            address = user_data.getAddress();
+        //     user_id = user_data.getUser_id();
+        //     email_Address = user_data.getEmail_Address();
+        //     password = user_data.getPassword();
+        //     first_Name = user_data.getFirst_Name();
+        //     last_Name = user_data.getLast_Name();
+        //     midle_Name = user_data.getMidle_Name();
+        //     birthday = user_data.getBirthday();
+        //     gender = user_data.getGender();
+        //     country = user_data.getCountry();
+        //     city = user_data.getCity();
+        //     contact_no = user_data.getContact_no();
+        //     address = user_data.getAddress();
 
 
-            // System.out.println(user_data);
-            // System.out.println(email_Address);
-            // System.out.println(last_Name);
-            // System.out.println(midle_Name);
-            // System.out.println(birthday);
-            // System.out.println(gender);
-            // System.out.println(country);
-            // System.out.println(city);
-            // System.out.println(contact_no);
+        //     user_company_name = user_data.getUser_company_name();
+        //     company_duration_work = user_data.getCompany_duration_work();
+        //     position_worked = user_data.getPosition_worked();
+        //     year_worked = user_data.getYear_worked();
+        //     salary = user_data.getSalary();
 
     
-            return user_data;
-        }
+        //     return user_data;
+        // }
         
 
        

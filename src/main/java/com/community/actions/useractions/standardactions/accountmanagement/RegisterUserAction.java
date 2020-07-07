@@ -30,7 +30,7 @@ public class RegisterUserAction extends ActionSupport {
 		UserMgmtDao mgmt = new UserMgmtDao();
 
 		// boolean isUserRegistered = false;
-		User welcome_obj = null;
+		// User welcome_obj = null;
 		String statuscode;
 		
 		int recInserted = UserMgmtDao.registerUser(userinfo);

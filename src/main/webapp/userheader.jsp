@@ -36,7 +36,7 @@ if(session.getAttribute("login_user") == null)
              <a class="nav-item nav-link  dropdown-toggle "  data-toggle="dropdown" id="servicesDropdown" aria-haspopup="true" aria-expanded="false" href="#">Jobs/ carrier</a> <!-- there is no addres link so that the drop down would work --> 
          <div   class="dropdown-menu" aria-labelledby="servicesDropdown"> 
                   <a class="dropdown-item" href="links here">find work</a> 
-                  <a class="dropdown-item" href="links here">post work</a> 
+                  <a class="dropdown-item" href="jobGoToPageAction">post work</a> 
 
          </div> 
       </div> 

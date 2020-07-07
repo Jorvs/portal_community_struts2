@@ -26,8 +26,8 @@
         <!-- retrives the data and on your profile page -->
         <!-- when login will be redirect to this action to execute action and redirect to to profile.jsp -->
     <action name="viewProfileAction" class="com.community.actions.useractions.standardactions.accountmanagement.ViewProfileAction" >  
-        <result name="viewprofile"  >/profile.jsp</result>
-        <!-- <result name="input" >/login.jsp</result>  -->
+        <result name="viewprofile" >/profile.jsp</result>
+        <result name="input" >/login.jsp</result>      
     </action>
 
     
@@ -95,7 +95,7 @@
     </action>
 
 <!-- ////////////////////////////////forget password///////////////////////////////// -->
-    <action name="forgetPasswordAction" class="com.community.actions.useractions.standardactions.accountmanagement.ForgetPasswordAction" >  
+<action name="forgetPasswordAction" class="com.community.actions.useractions.standardactions.accountmanagement.ForgetPasswordAction">  
         <result name="resetpasswordsent" >/forgotpasswordsent.jsp</result>
         <result name="error_retrieve_data">/error.jsp</result>
     </action>
@@ -103,5 +103,34 @@
 
 
 </package> <!-- user management  package ending tag -->
+
+
+
+
+
+
+
+
+<!-- //////////////////////////////////////////Jobs //////////////////////////////////////////// -->
+
+
+<package name="jobmgmt" extends="struts-default"  > 
+
+    <action name="jobGoToPageAction" class="com.community.actions.useractions.standardactions.jobsmanagement.JobGoToPageAction" >  
+        <result name="gotopostjobpage" >/postjobs.jsp</result>
+    </action>
+
+     <action name="jobPostUserAction" class="com.community.actions.useractions.standardactions.jobsmanagement.JobPostUserAction" >  
+        <result name="job_have_been_posted" >/jobs.jsp</result>
+        <result name="error">/error.jsp</result>
+    </action>
+
+
+
+</package>
+
+
+
+
 
 </struts>

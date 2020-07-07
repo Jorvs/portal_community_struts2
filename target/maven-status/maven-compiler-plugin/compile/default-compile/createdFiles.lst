@@ -2,6 +2,8 @@ com\community\actions\useractions\standardactions\accountmanagement\SearchUsersA
 com\community\actions\Index.class
 com\community\actions\useractions\standardactions\accountmanagement\UpdateUserAction.class
 com\community\bean\usersbean\User.class
+com\community\dao\postdao\standardao\JobsMgmtDao.class
+com\community\bean\jobsbean\Jobs.class
 com\community\daos\CustomerDAO.class
 com\community\interceptors\LoginInterceptors.class
 com\community\dbconnection\DConnection.class
@@ -9,6 +11,8 @@ com\community\actions\useractions\standardactions\accountmanagement\LoginAction.
 com\community\actions\useractions\adminactions\accountmanagement\DeleteAction.class
 com\community\actions\useractions\standardactions\accountmanagement\ForgetPasswordAction.class
 com\community\actions\useractions\standardactions\accountmanagement\RegisterUserAction.class
+com\community\actions\useractions\standardactions\jobsmanagement\JobPostUserAction.class
+com\community\actions\useractions\standardactions\jobsmanagement\JobGoToPageAction.class
 com\community\bean\usersbean\LoginInfo.class
 com\community\models\Customer.class
 com\community\dao\usersdao\standardao\RegisterDao.class

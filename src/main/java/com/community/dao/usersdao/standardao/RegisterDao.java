@@ -18,10 +18,10 @@ public class RegisterDao {
         
         try{
             conn = DConnection.getConnectionToMySQL();
-           String query = ("SELECT * FROM user_table WHERE email_Address = ? AND password = ? ");
+            String query = ("SELECT * FROM user_table WHERE email_Address = ? AND password = ? ");
             PreparedStatement ps = conn.prepareStatement(query);
-           ps.setString(1, registerInfo.getEmail_Address());
-           ps.setString(2, registerInfo.getPassword());
+            ps.setString(1, registerInfo.getEmail_Address());
+            ps.setString(2, registerInfo.getPassword());
                  
             ResultSet rs = ps.executeQuery();
             while(rs.next())

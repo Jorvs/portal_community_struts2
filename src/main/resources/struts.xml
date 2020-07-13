@@ -49,35 +49,52 @@
     </action> -->
 
 
-        
+     <!-- //////////////////////////////////////////////////admin crud/////////////////////////////////////////   -->
     
     <action name="homePageDataPapulateAction" class="com.community.actions.useractions.adminactions.accountmanagement.HomePageDataPapulateAction" >
-    <result name="loginsuccess111" >/editusersaccount.jsp</result> 
+    <result name="loginsuccess" >/adminpages/editusersaccount.jsp</result> 
     <!-- this where you are direct after edit and delete accounts -->
     </action>
   
 <!-- ////////////////////delete user ////////////////////////// -->
     <action name="deleteAction" class="com.community.actions.useractions.adminactions.accountmanagement.DeleteAction" >  
         <result name="deletesuccess" type="redirect" >/homePageDataPapulateAction</result>
-        <result name="errorsuccess">/error.jsp</result>
+        <result name="errorsuccess">/adminpages/error.jsp</result>
     </action>
+
+
+<!-- /////////////////////update the user  infromation for admin////////////////////////////// -->
+<action name="updateAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateAction" >  
+    <result name="updateusersuccess1" type="redirect" >/homePageDataPapulateAction</result>
+    <result name="error_update_user">/adminpages/error.jsp</result>
+</action>
+
+
+
+   <!-- /////////////////////transfer data for user update//////////////////////////////  -->
+  <action name="updateUserAction" class="com.community.actions.useractions.adminactions.accountmanagement.UpdateUserAction" >  
+      <result name="gotadminupdatepage" >/adminpages/update.jsp</result>
+      <result name="error_retrieve_data">/error.jsp</result>
+  </action>
+
+
+
+
+
 
 <!-- /////////////////////register user////////////////////////////// -->
     <action name="registerUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.RegisterUserAction" >  
         <result name="registerusersuccess" >/success.jsp</result>
         <result name="error_user_register">/error.jsp</result>
     </action>
-<!-- /////////////////////transfer data for user update////////////////////////////// -->
-    <action name="updateUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateUserAction" >  
-        <result name="updateusersuccess" >/update.jsp</result>
-        <result name="error_retrieve_data">/error.jsp</result>
-    </action>
 
-<!-- /////////////////////update the user  infromation for admin////////////////////////////// -->
-    <action name="updateAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateAction" >  
-        <result name="updateusersuccess1" type="redirect" >/homePageDataPapulateAction</result>
-        <result name="error_update_user">/error.jsp</result>
-    </action>
+
+
+    
+    
+
+
+
 
 
 <!-- ///////////////////////////////search users////////////////////////////////// -->

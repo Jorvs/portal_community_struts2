@@ -100,7 +100,7 @@
                     <h2>Jobs is registered</h2>
                 </div>
 		</s:form>
-		<h2><a href="login.jsp">Login</a></h2>
+	
 </div>
 </div>
 

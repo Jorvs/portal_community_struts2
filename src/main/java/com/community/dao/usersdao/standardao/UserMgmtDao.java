@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.community.bean.usersbean.LoginInfo;
 import com.community.bean.usersbean.RegisterInfo;
-import com.community.bean.usersbean.Search;
 import com.community.bean.usersbean.User;
 import com.community.dbconnection.DConnection;
 
@@ -303,12 +302,30 @@ public static User getUserDataByID(int user_id){
         while(rs.next())
         {
             // if all tables where selected the number inside the parenthesis are there number if the table of the database
-            userObj = new User(rs.getString(4),rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),  rs.getString(17),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),rs.getString(21));
-            System.out.println("displayed from the loop: " + rs);
-            
+            userObj = new User(rs.getString(4),rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),      rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),rs.getString(21));
            
+            System.out.println("/////////////////////////////////////// Usermgmt query ");
+            System.out.println("email: " + rs.getString(4));
+            System.out.println("First Name: " + rs.getString(6));
+            System.out.println("Last Name: " + rs.getString(7));
+            System.out.println("Midle Name: " +  rs.getString(8));
+            System.out.println("Birthday: " + rs.getString(9));
+            System.out.println("Gender: " + rs.getString(10));
+            System.out.println("Country: " + rs.getString(11));
+            System.out.println("City: " + rs.getString(12));
+            System.out.println("Contact No: " + rs.getString(13));
+            System.out.println("Adress: " + rs.getString(14));
+
+            System.out.println("Company Name: " + rs.getString(17));
+            System.out.println("Duration of worked: " + rs.getString(18));
+            System.out.println("Position Worked: " + rs.getString(19));
+            System.out.println("Year Worked: " + rs.getString(20));
+            System.out.println("Salary: " + rs.getString(21));
+
             // System.out.println(userList);
         }
+
+        
     }catch(Exception e)
     {
         e.printStackTrace();
@@ -369,48 +386,6 @@ public static int getUserId(LoginInfo userInfo) throws Exception {
 }// end of getUSerId
 
 
-
-
-
-// retrive profile data when the user views his own profile
-// public static User getProfileDataById(int user_id){
-
-        
-//     User userObj = null;
-//     // boolean validStatus = false;
-//     Connection  conn = null;
-    
-//     try{
-//         conn = DConnection.getConnectionToMySQL();
-//         String query = "SELECT * " 
-//                      + "FROM user_table " 
-//                      + "WHERE user_id = ? ";
-//         PreparedStatement ps = conn.prepareStatement(query);
-//         ps.setInt(1, user_id);
-
-//         ResultSet rs = ps.executeQuery();
-//         // System.out.println(rs);
-//         while(rs.next())
-//         {
-//             // if all tables where selected the number inside the parenthesis are there number if the table of the database
-//              userObj = new User(rs.getString(4),rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14));
-            
-//             // System.out.println(userList);
-//         }
-//     }catch(Exception e)
-//     {
-//         e.printStackTrace();
-//         System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
-//         System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
-//     }finally
-//     {
-        
-//             DConnection.closeConnection(conn);
-       
-//      }// finally end
-    
-//      return userObj;
-// }// end of getUserByID
 
 
 

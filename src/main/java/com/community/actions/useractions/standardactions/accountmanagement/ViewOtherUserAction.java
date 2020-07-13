@@ -69,6 +69,25 @@ public class ViewOtherUserAction extends ActionSupport {
         year_worked = user_data.getYear_worked();
         salary = user_data.getSalary();
 
+
+        // System.out.println("view other profile action");
+        // System.out.println("email address:  " + email_Address);
+        // System.out.println("First Name:  " + first_Name);
+        // System.out.println("Last Name:  " + last_Name);
+        // System.out.println("Midle Name:  " + midle_Name);
+        // System.out.println("Birthday:  " + birthday);
+        // System.out.println("Gender:  " + gender);
+        // System.out.println("Country:  " + country);
+        // System.out.println("City:  " + city);
+        // System.out.println("Contact no:  " + contact_no);
+        // System.out.println("Address:  " + address);
+
+        // System.out.println("Company Name:  " + user_company_name);
+        // System.out.println("Company Duration Work:  " + company_duration_work);
+        // System.out.println("Position Worked:  " + position_worked);
+        // System.out.println("Year Worked:  " + year_worked);
+        // System.out.println("Salary:  " + salary);
+
         return user_data;
 
     }

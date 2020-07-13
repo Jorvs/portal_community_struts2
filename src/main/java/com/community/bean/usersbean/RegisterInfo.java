@@ -18,11 +18,7 @@ public class RegisterInfo {
     
     String urlmessage;
 
-    // public RegisterInfo(){
-
-
-    // }
-
+   
 
 
 

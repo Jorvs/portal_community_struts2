@@ -96,7 +96,7 @@ public class User {
     }
 
    
-     // used for view user profile data
+     // used for view and update user profile data and work experiance
      public User(String email_Address, String first_Name, String last_Name, String midle_Name, String birthday, String gender , String country, String city, String contact_no, String address,  String user_company_name,String company_duration_work, String position_worked,  String year_worked,  String salary )
      {
         
@@ -144,7 +144,29 @@ public class User {
        
 
     }
+ // used for view user profile data and work experiance for admin 
+    public User(int user_id ,String email_Address,String password ,String first_Name, String last_Name, String midle_Name, String birthday, String gender , String country, String city, String contact_no, String address,  String user_company_name,String company_duration_work, String position_worked,  String year_worked,  String salary )
+    {
+        this.user_id = user_id;
+        this.email_Address = email_Address; 
+        this.password = password;
+        this.first_Name = first_Name;
+        this.last_Name = last_Name;
+        this.midle_Name = midle_Name;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.country = country;
+        this.city = city;
+        this.contact_no = contact_no;
+        this.address = address;
 
+        this.user_company_name = user_company_name;
+        this.company_duration_work = company_duration_work;
+        this.position_worked = position_worked;
+        this.year_worked = year_worked;
+        this.salary = salary;
+        
+    }
 
 
 
@@ -305,10 +327,12 @@ public class User {
 
 
 
+
     @Override
     public String toString() {
         return "{" +
-            " email_Address='" + getEmail_Address() + "'" +
+            " user_id='" + getUser_id() + "'" +
+            ", email_Address='" + getEmail_Address() + "'" +
             ", password='" + getPassword() + "'" +
             ", first_Name='" + getFirst_Name() + "'" +
             ", last_Name='" + getLast_Name() + "'" +
@@ -319,8 +343,14 @@ public class User {
             ", contact_no='" + getContact_no() + "'" +
             ", address='" + getAddress() + "'" +
             ", gender='" + getGender() + "'" +
+            ", user_company_name='" + getUser_company_name() + "'" +
+            ", company_duration_work='" + getCompany_duration_work() + "'" +
+            ", position_worked='" + getPosition_worked() + "'" +
+            ", year_worked='" + getYear_worked() + "'" +
+            ", salary='" + getSalary() + "'" +
             "}";
     }
+   
 
 
 }

@@ -37,8 +37,8 @@ public class UpdateRetriveDataProfileAction {
     public String execute(){
 
         
-        retriveProfileDataForUpdate();   // retrives the data of the profile of the user that is logon
-        retriveProfileWorkExperianceForUpdate(); // retives the work experiance
+        retriveProfileDataForUpdate();   // retives user and work experiance data for update 
+        
         
         
         String statusCode = "retrivedataforupdate";
@@ -74,6 +74,14 @@ public class UpdateRetriveDataProfileAction {
         city = user_data.getCity();
         contact_no = user_data.getContact_no();
         address = user_data.getAddress();
+
+ 
+        user_company_name = user_data.getUser_company_name();
+        company_duration_work = user_data.getCompany_duration_work();
+        position_worked = user_data.getPosition_worked();
+        year_worked = user_data.getYear_worked();
+        salary = user_data.getSalary();
+
         
 
      

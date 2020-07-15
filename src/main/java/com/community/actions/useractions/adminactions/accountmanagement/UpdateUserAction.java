@@ -19,22 +19,27 @@ public class UpdateUserAction extends ActionSupport {
     String address;
     String gender;
 
+
+    String user_company_name;
+    String company_duration_work;
+    String position_worked;
+    String year_worked;
+    String salary;
+
+
     public String execute(){
 
         String statusCode = "";
        
 
-         Object data = retriveUserData();
+         retriveUserData(); // retives user and work experiance for  update
         
 
-        // if(data != null){
+      
        
               return statusCode = "gotadminupdatepage";
 
-        // }else
-        // {
-        //     return statusCode = "error_update_registers";
-        // }
+       
 
        
         
@@ -44,23 +49,50 @@ public class UpdateUserAction extends ActionSupport {
     public Object retriveUserData() {
        
        
-        User user = AdmnUserMgtmtDao.getUserByID(user_id);
+        User user_data = AdmnUserMgtmtDao.getUserByID(user_id);
 
-        user_id = user.getUser_id();
-        email_Address = user.getEmail_Address();
-        password = user.getPassword();
-        first_Name = user.getFirst_Name();
-        last_Name = user.getLast_Name();
-        midle_Name = user.getMidle_Name();
-        birthday = user.getBirthday();
-        gender = user.getGender();
-        country = user.getCountry();
-        city = user.getCity();
-        contact_no = user.getContact_no();
-        address = user.getAddress();
+        user_id = user_data.getUser_id();
+        email_Address = user_data.getEmail_Address();
+        password = user_data.getPassword();
+        first_Name = user_data.getFirst_Name();
+        last_Name = user_data.getLast_Name();
+        midle_Name = user_data.getMidle_Name();
+        birthday = user_data.getBirthday();
+        gender = user_data.getGender();
+        country = user_data.getCountry();
+        city = user_data.getCity();
+        contact_no = user_data.getContact_no();
+        address = user_data.getAddress();
 
-        System.out.println(user);
-        return user;
+ 
+        user_company_name = user_data.getUser_company_name();
+        company_duration_work = user_data.getCompany_duration_work();
+        position_worked = user_data.getPosition_worked();
+        year_worked = user_data.getYear_worked();
+        salary = user_data.getSalary();
+
+
+        ////////////////////////////////////////////updateUserAction
+        System.out.println("email= " + email_Address);
+        System.out.println("first name= " + first_Name);
+        System.out.println("lastname= " + last_Name);
+        System.out.println("midlename= " + midle_Name);
+        System.out.println("birthday= " +birthday);
+        System.out.println("gender= " +gender);
+        System.out.println("country= " +country);
+        System.out.println("city= " + city);
+        System.out.println("contact= " +contact_no);
+        System.out.println("address= " +address);
+
+
+        System.out.println("user_company_name= " + user_company_name);
+        System.out.println("company_duration_work= " + company_duration_work);
+        System.out.println("position_worked= " + position_worked);
+        System.out.println("year_worked= " + year_worked);
+        System.out.println("salary= " + salary);
+
+
+        return user_data;
 
      }
 
@@ -164,6 +196,48 @@ public class UpdateUserAction extends ActionSupport {
     public void setGender(String gender) {
         this.gender = gender;
     }
+
+    public String getUser_company_name() {
+        return this.user_company_name;
+    }
+
+    public void setUser_company_name(String user_company_name) {
+        this.user_company_name = user_company_name;
+    }
+
+    public String getCompany_duration_work() {
+        return this.company_duration_work;
+    }
+
+    public void setCompany_duration_work(String company_duration_work) {
+        this.company_duration_work = company_duration_work;
+    }
+
+    public String getPosition_worked() {
+        return this.position_worked;
+    }
+
+    public void setPosition_worked(String position_worked) {
+        this.position_worked = position_worked;
+    }
+
+    public String getYear_worked() {
+        return this.year_worked;
+    }
+
+    public void setYear_worked(String year_worked) {
+        this.year_worked = year_worked;
+    }
+
+    public String getSalary() {
+        return this.salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    
    
 
 }

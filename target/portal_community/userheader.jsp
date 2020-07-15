@@ -48,7 +48,7 @@ if(session.getAttribute("login_user") == null)
               <!-- <a class="dropdown-item" href="profile.jsp">Profile</a>  -->
               <a class="dropdown-item" href="viewProfileAction" />profle</a>
               <a class="dropdown-item" href="updateRetriveDataProfileAction"/>Update Profile</a> 
-              <a class="dropdown-item" href="links here">Account Settings</a> 
+              <a class="dropdown-item" href="homePageDataPapulateAction">CRUD admin</a> 
               <a class="dropdown-item" href="login.jsp">Logout</a> 
            </div> 
        </div>  

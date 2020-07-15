@@ -32,25 +32,14 @@ public class UpdateAction extends ActionSupport {
         int recUpdated = AdmnUserMgtmtDao.updateUser(userinfo);
         if(recUpdated == 1)
         {
-            return   statusCode=  "updateusersuccess";
+            return   statusCode=  "updateusersuccess1";
         }else
         {
             message = "error update something went wrong";
             return   statusCode=  "error_update_user";
         }
 
-
     }
-
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
 
 
 
@@ -148,6 +137,14 @@ public class UpdateAction extends ActionSupport {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     

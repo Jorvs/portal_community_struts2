@@ -305,6 +305,7 @@ public static User getUserDataByID(int user_id){
             userObj = new User(rs.getString(4),rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),      rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),rs.getString(21));
            
             System.out.println("/////////////////////////////////////// Usermgmt query ");
+           
             System.out.println("email: " + rs.getString(4));
             System.out.println("First Name: " + rs.getString(6));
             System.out.println("Last Name: " + rs.getString(7));
@@ -519,7 +520,7 @@ public static User getProfileWorkExperianceDataById(int user_id){
 
 
 
-           
+           // if there  is 1 table udpdated it results to a true
             if(status == 1 || adddata == 1){
                 updateresult = 1;
             }

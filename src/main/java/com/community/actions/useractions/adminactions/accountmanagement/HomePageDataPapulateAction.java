@@ -24,6 +24,12 @@ public class HomePageDataPapulateAction extends ActionSupport {
 
     public void displayAdminUsers(){
         users = AdmnUserMgtmtDao.getAllUser();
+
+
+
+
+
+        
     }
 
 

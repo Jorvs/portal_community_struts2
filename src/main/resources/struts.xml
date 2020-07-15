@@ -64,7 +64,7 @@
 
 
 <!-- /////////////////////update the user  infromation for admin////////////////////////////// -->
-<action name="updateAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateAction" >  
+<action name="updateAction" class="com.community.actions.useractions.adminactions.accountmanagement.UpdateAction" >  
     <result name="updateusersuccess1" type="redirect" >/homePageDataPapulateAction</result>
     <result name="error_update_user">/adminpages/error.jsp</result>
 </action>

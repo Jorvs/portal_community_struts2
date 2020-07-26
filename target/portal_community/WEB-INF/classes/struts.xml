@@ -131,15 +131,28 @@
 <!-- //////////////////////////////////////////Jobs //////////////////////////////////////////// -->
 
 
-<package name="jobmgmt" extends="struts-default"  > 
+<package name="jobmgmt" extends="struts-default" > 
 
+    <!-- refirects youto the page to register the job -->
     <action name="jobGoToPageAction" class="com.community.actions.useractions.standardactions.jobsmanagement.JobGoToPageAction" >  
-        <result name="gotopostjobpage" >/postjobs.jsp</result>
+        <result name="gotopostjobpage" >/jobspages/postjobs.jsp</result>
     </action>
 
-     <action name="jobPostUserAction" class="com.community.actions.useractions.standardactions.jobsmanagement.JobPostUserAction" >  
-        <result name="job_have_been_posted" >/jobs.jsp</result>
+    <!-- register the jobs  and send it to the confirmation page -->
+    <action name="jobPostUserAction" class="com.community.actions.useractions.standardactions.jobsmanagement.JobPostUserAction" >  
+        <result name="job_have_been_posted" >/jobspages/jobregisterconfirmation.jsp</result>
         <result name="error">/error.jsp</result>
+    </action>
+
+     <!-- refirects youto the page to search jobs the job -->
+    <action name="jobGoToSearchPageAction" class="com.community.actions.useractions.standardactions.jobsmanagement.JobSearchAction" >  
+        <result name="go_to_post_job_page" >/jobspages/jobsearch.jsp</result>
+    </action>
+
+    <!-- ////////////////////when searching redirects you to the search results ////////////////////////// -->
+    <action name="jobSearchResult" class="com.community.actions.useractions.adminactions.accountmanagement.JobSearchAction" >  
+        <result name="job_search_found" type="redirect" >/jobspages/jobGoToSearchPageAction</result>
+        <result name="job_result_not_found">/jobspages/jobsearch.jsp</result>
     </action>
 
 

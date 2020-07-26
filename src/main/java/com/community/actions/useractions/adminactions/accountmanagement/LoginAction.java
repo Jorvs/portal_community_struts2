@@ -28,6 +28,7 @@ public class LoginAction extends ActionSupport{
             if(isUserValid) 
             {
                 statusCode = "loginsuccess";
+                System.out.println("tryingss debug mode");
             }else
             {
                 statusCode = "input";

@@ -1,7 +1,9 @@
 com\community\actions\useractions\standardactions\accountmanagement\SearchUsersAction.class
+com\community\dao\jobsdao\JobMgmtDao.class
 com\community\actions\Index.class
 com\community\actions\useractions\standardactions\accountmanagement\UpdateUserAction.class
 com\community\bean\usersbean\User.class
+com\community\actions\useractions\standardactions\jobsmanagement\JobSearchAction.class
 com\community\dao\postdao\standardao\JobsMgmtDao.class
 com\community\actions\useractions\adminactions\accountmanagement\UpdateUserAction.class
 com\community\bean\jobsbean\Jobs.class

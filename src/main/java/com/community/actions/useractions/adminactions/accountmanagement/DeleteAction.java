@@ -20,7 +20,7 @@ public class DeleteAction extends ActionSupport{
         }
         else
         {
-            message = "error delete something went wrong";
+            message = "cant delete user with data from other table for data security and constraints";
             return statuscode = "errorsuccess";
         }
 

@@ -59,7 +59,7 @@ public class LoginAction extends ActionSupport {
                 // gets the user id
                    
                     profile_id = UserMgmtDao.getUserId(userInfo); //gets the userid  that login 
-                    System.out.println("the user idssssssss = " +  profile_id);
+                    System.out.println("the user idssss = " +  profile_id);
 
                     
                     // retriveProfileDataForOthers(profile_id); //retrives the data of the user id

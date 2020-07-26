@@ -95,7 +95,7 @@
 						<!-- ////////////////////////////////// -->
 <div class="signup-form container">
 
-	<h2>Login Form</h2>
+<h2>Login Form</h2>
 
 	
     <s:form		action="loginAction" class="LoginForm" >

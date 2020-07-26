@@ -24,7 +24,8 @@ String posted_jobs;
 
 
 
-    // used for posting or registering a Job information
+
+    ///////////////////////////////// used for posting or registering a Job information
     public Jobs(String job_title, String job_description, String job_salary, String type_of_work, String job_location, String qualifications, String country, String city, String address) {
 
        
@@ -38,19 +39,24 @@ String posted_jobs;
         this.city = city;
         this.address = address;
 
-       
-       
+     }
 
-
-
-    }
-
-     // used for posting a job
+     /////////////////////////////////////////// used for posting a job
      public Jobs(String posted_jobs) {
        
         this.posted_jobs = posted_jobs;
+    }
 
 
+    ////////////////////////////////////////////////used for jobs searchs
+
+    public Jobs(int job_information_id ,String job_description ,String job_title,String job_salary,String type_of_work){
+
+        this.job_information_id = job_information_id;
+        this.job_description = job_description;
+        this.job_title = job_title;
+        this.job_salary = job_salary;
+        this.type_of_work = type_of_work;
 
     }
 

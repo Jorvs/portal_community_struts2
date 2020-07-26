@@ -5,16 +5,92 @@
 
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Welcome</title>
+
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Login Users</title>
+
+
+
+<!-- Latest compiled and minified CSS -->
+<!-- Latest compiled and minified CSS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<title>Admin CRUD</title>
+
+
+
+<style type="text/css">
+	body{
+		color: #fff;
+		background: #63738a;
+		font-family: 'Roboto', sans-serif;
+		padding-top: 70px;
+		padding-bottom: 140px;
+	}
+    
+	
+    	
+	.signup-form{
+		width: 600px;
+		margin: 0 auto;
+		padding: 40px 0;
+	}
+
+	
+	
+    
+    .signup-form form{
+		color: #999;
+		border-radius: 3px;
+    	margin-bottom: 25px;
+        background: #f2f3f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+	
+	
+	
+	   	
+    .signup-form a{
+		color: #fff;
+		text-decoration: underline;
+	}
+    .signup-form a:hover{
+		text-decoration: none;
+	}
+	.signup-form form a{
+		color: #5cb85c;
+		text-decoration: none;
+	}	
+	.signup-form form a:hover{
+		text-decoration: underline;
+	}  
+
+
+</style>
+
+
+
 </head>
 <body>
-<h2>Welcome</h2>
-	 <!-- <s:label value="first Name" />
-	<s:property value="first_Name"/><br/>
+
 	
-	<s:label value="Last Name" />
-	<s:property value="last_Name"/><br/>  -->
+
+	  <!-- header that contains the navbar  -->
+	  <%@ include file="/userheader.jsp" %>
+
+
+
+<div class="signup-form container"></div>
+	  <h2>ADMIN</h2>
 
 	<table width="1000" class="userTable" align="center" >
 		<thead>
@@ -37,6 +113,36 @@
 		</tr>
 		</s:iterator>
 	</table>
+
+
+</div>
+	
+
+		
+		
+			
+			<!-- <s:form		action="loginAction" class="LoginForm" >
+				<s:textfield name="email_Address" label="Email/User Name" class="formTextField"></s:textfield>
+				<s:textfield name="password" label="Password" type="password" class="formTextField" ></s:textfield>
+				<s:submit value="Login" class="actionBtn"/>
+			</s:form>
+				<h2><a href="forgetpassoword.jsp">Forgot passoword</a></h2>
+		 -->
+
+
+
+
+	<!-- this is the footer link -->
+	<jsp:include page="/userfooter.jsp"></jsp:include>
+
 	
 </body>
+
+
+
+
+
+
+ 
+
 </html>

@@ -103,7 +103,7 @@
         <s:textfield name="password" label="Password" type="password" class="formTextField" ></s:textfield>
         <s:submit value="Login" class="actionBtn"/>
     </s:form>
-        <h2><a href="forgetpassoword.jsp">Forgot passoword</a></h2>
+        <h2><a href="forgetpassword.jsp">Forgot passoword</a></h2>
 </div>
 
 

@@ -85,7 +85,14 @@
 <!-- /////////////////////register user////////////////////////////// -->
     <action name="registerUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.RegisterUserAction" >  
         <result name="registerusersuccess" >/success.jsp</result>
-        <result name="error_user_register">/error.jsp</result>
+        <result name="input">/register.jsp</result>
+    </action>
+
+
+    <!-- /////////////////////reset user password////////////////////////////// -->
+    <action name="ResetPasswordAction" class="com.community.actions.useractions.standardactions.accountmanagement.ResetPasswordAction" >  
+        <result name="resetpasswordsent" >/forgotpasswordsent.jsp</result>
+        <result name="input">/forgetpassword.jsp</result>
     </action>
 
 

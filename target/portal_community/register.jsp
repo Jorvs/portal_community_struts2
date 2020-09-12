@@ -29,6 +29,13 @@
 		padding-bottom: 140px;
 	}
     
+	.errorMessage {
+		color: red;
+		font-size: 0.8em;
+		/* text-align: left; */
+		
+		
+	}
 	
     	
 	.signup-form{
@@ -45,27 +52,16 @@
 		border-radius: 3px;
     	margin-bottom: 25px;
         background: #f2f3f7;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        /* box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); */
         padding: 30px;
+		text-align: justify;
     }
 	
 	
 	
 	   	
-    .signup-form a{
-		color: #fff;
-		text-decoration: underline;
-	}
-    .signup-form a:hover{
-		text-decoration: none;
-	}
-	.signup-form form a{
-		color: #5cb85c;
-		text-decoration: none;
-	}	
-	.signup-form form a:hover{
-		text-decoration: underline;
-	}  
+    
+	
 
 
 </style>
@@ -95,19 +91,20 @@
 	<h2 >Registration Form</h2>
 
 	
-		<s:form	 class="signup-form form"	action="registerUserAction" method="post" >
-		<s:textfield class="container-liquid" name="email_Address" label="Email/User Name" ></s:textfield>
-		<s:textfield name="password" label="Password" type="password" ></s:textfield>
-		<s:textfield name="first_Name" label="Your First Name" ></s:textfield>
-		<s:textfield name="last_Name" label="Your Last Name" ></s:textfield>
-		<s:textfield name="midle_Name" label="Your Midle Name" ></s:textfield>
-		<s:textfield name="birthday" label="Birthday" placeholder="YYYY-MM-DD" ></s:textfield>
+		<s:form	 class="signup-form form "	action="registerUserAction" method="post" >
+
+		<s:textfield name="email_Address" label="Email/User Name"/>
+		<s:textfield name="first_Name" label="First Name" />
+		<s:textfield name="last_Name" label="Last Name" />
+		<s:textfield name="midle_Name" label="Midle Name" />
+		<s:textfield name="birthday" label="Birthday" placeholder="YYYY-MM-DD" />
 		<s:select 	 name="gender" label="Gender" list="{'Male','Female'}"></s:select>
-		<s:textfield name="country" label="Country" ></s:textfield>
-		<s:textfield name="city" label="City" ></s:textfield>
-		<s:textfield name="contact_no" label="Contact no" ></s:textfield>
-		<s:textfield name="address" label="Address" ></s:textfield>
+		<s:textfield name="country" label="Country" />
+		<s:textfield name="city" label="City" />
+		<s:textfield name="contact_no" label="Contact no" />
+		<s:textfield name="address" label="Address" />
 		<s:submit  type="button" value="Register User"/>
+		
 		</s:form>
 		<h2><a href="login.jsp">Login</a></h2>
 </div>

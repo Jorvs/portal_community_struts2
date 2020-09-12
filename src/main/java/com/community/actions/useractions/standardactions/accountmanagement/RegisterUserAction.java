@@ -152,25 +152,33 @@ public class RegisterUserAction extends ActionSupport {
 	
 	
 	
-	// public void validate() {
+	public void validate() {
 		
-	// 	if(first_Name.equals("")) {
-	// 		addFieldError("first_Name", "First Name is required");
-	// 	}
+
+		if(email_Address.equals("")) {
+			addFieldError("email_Address", "email address is required");
+		}
+		if(first_Name.equals("")) {
+			addFieldError("first_Name", "First Name is required");
+		}
 		
-	// 	if(last_Name.equals("")) {
-	// 		addFieldError("last_Name", "last Name is required");
-	// 	}
+		if(last_Name.equals("")) {
+			addFieldError("last_Name", "last Name is required");
+		}
 		
-	// 	if(gender.equals("")) {
-	// 		addFieldError("gender", "gender Name is required");
-	// 	}
+		if(gender.equals("")) {
+			addFieldError("gender", "gender Name is required");
+		}
 	
-	// 	if(birthday.equals("")) {
-	// 		addFieldError("birthday", "birday Name is required");
-	// 	}
+		if(birthday.equals("")) {
+			addFieldError("birthday", "birday Name is required");
+		}
+		if(birthday.equals("")) {
+			addFieldError("birthday", "birday Name is required");
+		}
 		
-	// }// end of validate
+		
+	}// end of validate
 	
 	
 	

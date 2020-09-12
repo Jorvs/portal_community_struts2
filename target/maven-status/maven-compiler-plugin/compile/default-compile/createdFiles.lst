@@ -3,6 +3,7 @@ com\community\dao\jobsdao\JobMgmtDao.class
 com\community\actions\Index.class
 com\community\actions\useractions\standardactions\accountmanagement\UpdateUserAction.class
 com\community\bean\usersbean\User.class
+com\community\actions\useractions\standardactions\accountmanagement\ResetPasswordAction.class
 com\community\actions\useractions\standardactions\jobsmanagement\JobSearchAction.class
 com\community\dao\postdao\standardao\JobsMgmtDao.class
 com\community\actions\useractions\adminactions\accountmanagement\UpdateUserAction.class
@@ -23,6 +24,7 @@ com\community\dbconnection\Session.class
 com\community\actions\useractions\adminactions\accountmanagement\LoginAction.class
 com\community\actions\useractions\adminactions\accountmanagement\HomePageDataPapulateAction.class
 com\community\dao\usersdao\standardao\LoginDAO.class
+com\community\dao\usersdao\standardao\ResetPassWordDao.class
 com\community\actions\data\package-info.class
 com\community\actions\useractions\standardactions\accountmanagement\ViewOtherUserAction.class
 com\community\dao\usersdao\standardao\UserMgmtDao.class
@@ -36,4 +38,5 @@ com\community\dao\usersdao\admindao\AdmnUserMgtmtDao.class
 com\community\actions\useractions\adminactions\accountmanagement\UpdateAction.class
 com\community\actions\useractions\standardactions\accountmanagement\LogoutAction.class
 com\community\bean\usersbean\RegisterInfo.class
+com\community\bean\usersbean\ResetPasswordBean.class
 com\community\actions\useractions\standardactions\accountmanagement\UpdateRetriveDataProfileAction.class

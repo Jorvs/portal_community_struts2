@@ -21,12 +21,15 @@ D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\bean\jobsbean\Jobs.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\accountmanagement\ForgetPasswordAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\adminactions\accountmanagement\LoginAction.java
+D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\accountmanagement\ResetPasswordAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\bean\usersbean\LoginInfo.java
+D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\dao\usersdao\standardao\ResetPassWordDao.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\accountmanagement\SearchUsersAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\data\package-info.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\interceptors\LoginInterceptors.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\jobsmanagement\JobGoToPageAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\accountmanagement\UpdateSaveProfileDataAction.java
+D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\bean\usersbean\ResetPasswordBean.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\accountmanagement\UpdateUserAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\jobsmanagement\JobSearchAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\accountmanagement\UpdateRetriveDataProfileAction.java

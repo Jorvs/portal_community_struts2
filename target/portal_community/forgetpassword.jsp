@@ -100,8 +100,11 @@
 	
        
 
-    <s:form class="ResetPasswordAction" method="POST">
-		<s:textfield name="email_Address" label="Email" class="formTextField"/>
+    <s:form  action="ResetPasswordAction" cssClass="mx-auto mt-4" method="POST">
+		<span style="color: red;" ><s:property  value="errormessage" /></span>
+		<s:textfield name="email_Address" label="Email" type="email" />
+		<!-- cssClass="form-control form-group form-control" -->
+		<!-- pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"   title="email@gmail.com"  -->
 		<s:submit  type="button" value="Reset Password"/>
     </s:form>
        

@@ -92,8 +92,10 @@
 
 	
 		<s:form	 class="signup-form form "	action="registerUserAction" method="post" >
-
-		<s:textfield name="email_Address" label="Email/User Name"/>
+			
+		<span style="color: red;" ><s:property  value="errormessage" /></span>
+		<s:textfield name="email_Address" label="Email/User" type="email"/>
+		<s:textfield name="password" label="Password" type="password" />
 		<s:textfield name="first_Name" label="First Name" />
 		<s:textfield name="last_Name" label="Last Name" />
 		<s:textfield name="midle_Name" label="Midle Name" />

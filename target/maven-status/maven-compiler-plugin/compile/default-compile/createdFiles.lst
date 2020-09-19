@@ -8,10 +8,12 @@ com\community\actions\useractions\standardactions\jobsmanagement\JobSearchAction
 com\community\dao\postdao\standardao\JobsMgmtDao.class
 com\community\actions\useractions\adminactions\accountmanagement\UpdateUserAction.class
 com\community\bean\jobsbean\Jobs.class
+com\community\sendemails\SendEmail$1.class
 com\community\daos\CustomerDAO.class
 com\community\interceptors\LoginInterceptors.class
 com\community\dbconnection\DConnection.class
 com\community\actions\useractions\standardactions\accountmanagement\LoginAction.class
+com\community\sendemails\SendEmail.class
 com\community\actions\useractions\adminactions\accountmanagement\DeleteAction.class
 com\community\actions\useractions\standardactions\accountmanagement\ForgetPasswordAction.class
 com\community\actions\useractions\standardactions\accountmanagement\RegisterUserAction.class

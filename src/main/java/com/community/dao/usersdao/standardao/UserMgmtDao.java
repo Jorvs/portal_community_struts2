@@ -10,8 +10,11 @@ import java.util.List;
 
 import com.community.bean.usersbean.LoginInfo;
 import com.community.bean.usersbean.RegisterInfo;
+import com.community.bean.usersbean.ResetPasswordBean;
 import com.community.bean.usersbean.User;
 import com.community.dbconnection.DConnection;
+
+import org.apache.struts2.components.Password;
 
 
 public class UserMgmtDao {
@@ -542,10 +545,113 @@ public static User getProfileWorkExperianceDataById(int user_id){
        
      return updateresult;
 
-	}// end of updateUser
+    }// end of updateUser
+    
 
 
 
+    // check if the email already exist in the database
+    
+    public static boolean CheckEmailExist(ResetPasswordBean ResetPasswordBean) throws Exception {
+       
+       
+       
+        boolean validStatus = false;
+        Connection conn = null;
+       
+  
+
+        try{
+            conn = DConnection.getConnectionToMySQL();
+            String query = "SELECT * FROM user_table WHERE email_Address = ? ";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, ResetPasswordBean.getEmail_Address());
+            
+        //    System.out.println(ps);
+            ResultSet rs = ps.executeQuery();
+            // System.out.println(rs);
+            while(rs.next())
+            {
+                validStatus = true;
+
+            }
+            
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+            System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+        }finally
+        {
+            DConnection.closeConnection(conn);
+        }
+            return validStatus;
+    
+   }// end of isUserValid function
+
+
+ // for reseting the password by inserting a new password
+ public static int InsertResetPassword(String email_Address, String code ){
+
+    // int status = 0;
+    int generatedKey = 0;
+    int status = 0;
+    Connection  conn = null;
+
+    
+    
+
+    try{
+
+   
+        
+    
+      conn = DConnection.getConnectionToMySQL();
+      String query = "UPDATE user_table  SET " 
+                 
+                    +    "password = ? " 
+                   
+                 
+                    +    "WHERE email_Address = ?  ";
+       PreparedStatement ps = conn.prepareStatement(query);
+      
+       ps.setString(1,  code );
+       System.out.println("userMgmt password = " + code );
+      
+       // where condition target email_Address
+       ps.setString(2, email_Address );
+       System.out.println("userMmgt email address =  " + email_Address );
+
+       System.out.println("query exucted in Usermgmt for password reset = " + ps );
+
+
+        status = ps.executeUpdate();
+       
+
+
+
+       // if there  is 1 table udpdated it results to a true
+        if(status == 1 ){
+            System.out.println("The update password was sucesfuly updated in UserMgmt ");
+        }
+         
+      
+       
+   }catch(Exception e)
+   {
+       e.printStackTrace();
+       System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+       System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+   }finally
+   {
+       
+           DConnection.closeConnection(conn);
+      
+    }// finally end
+   
+ return status;
+
+}// end of updateUser
 
 
 

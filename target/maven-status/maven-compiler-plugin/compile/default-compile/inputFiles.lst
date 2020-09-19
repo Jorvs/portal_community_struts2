@@ -9,6 +9,7 @@ D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\Index.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\accountmanagement\RegisterUserAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\bean\usersbean\User.java
+D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\sendemails\SendEmail.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\accountmanagement\ViewOtherUserAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\models\Customer.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\jobsmanagement\JobPostUserAction.java

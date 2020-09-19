@@ -86,6 +86,7 @@
     <action name="registerUserAction" class="com.community.actions.useractions.standardactions.accountmanagement.RegisterUserAction" >  
         <result name="registerusersuccess" >/success.jsp</result>
         <result name="input">/register.jsp</result>
+        <result name="error_user_register">/error.jsp</result>
     </action>
 
 

@@ -1,6 +1,7 @@
 package com.community.actions.useractions.standardactions.accountmanagement;
 
 import com.community.bean.usersbean.RegisterInfo;
+import com.community.bean.usersbean.ResetPasswordBean;
 import com.community.bean.usersbean.User;
 import com.community.dao.usersdao.standardao.UserMgmtDao;
 import com.opensymphony.xwork2.ActionSupport;
@@ -22,35 +23,64 @@ public class RegisterUserAction extends ActionSupport {
 
 	String message = "";
 
+	String statuscode;
+	String errormessage;
+
 	// cacthes the request message for mapping and redirection to the struts.xml
 	public String execute() throws Exception {
-			// need a contructor on registerinfo with this variables
+
+		
+
+		// bean for userdata
 		RegisterInfo userinfo = new RegisterInfo(email_Address,password,first_Name,last_Name,midle_Name,birthday,country,city,contact_no, address,gender);
 
-		UserMgmtDao mgmt = new UserMgmtDao();
+		// bean for taking cehcking the email exsit
+		ResetPasswordBean check_emailaddress = new ResetPasswordBean(email_Address);
 
-		// boolean isUserRegistered = false;
-		// User welcome_obj = null;
-		String statuscode;
 		
-		int recInserted = UserMgmtDao.registerUser(userinfo);
+		// checks if the email exist 
+		boolean check_if_user_exist  =	UserMgmtDao.CheckEmailExist(check_emailaddress);
 		
-        if(recInserted >= 1)
-        {
-			System.out.println("condition have been met RegisterAction recieved The last id inserted is = "  + recInserted);
-			int	user_id_work_experiance_inserted = UserMgmtDao.registerUserIDWorkExperianceTable(recInserted);
-            return statuscode = "registerusersuccess";
-        }
-        else
-        {
-			message = "error register something went wrong";
-			return statuscode = "error_user_register";
+		if(check_if_user_exist)
+		{
+			System.out.println("The email is already registred");		
+			errormessage = "This email has  been taken or Registred already";
+            return  statuscode = "input";
+
+		}else
+		{
+			// inserts the user data
+			int Insert_user_data = UserMgmtDao.registerUser(userinfo);
+
+			if(Insert_user_data >= 1)
+				{
+					System.out.println("condition have been met RegisterAction recieved The last id inserted is = "  + Insert_user_data);
+					UserMgmtDao.registerUserIDWorkExperianceTable(Insert_user_data); // insetts extra user data 
+					return statuscode = "registerusersuccess";
+				}
+				else
+				{
+					message = "error register something went wrong";
+					return statuscode = "error_user_register";
+				}
+
 		}
 		
 		
 
 	}
 	
+
+
+
+	public String getErrormessage() {
+		return this.errormessage;
+	}
+
+	public void setErrormessage(String errormessage) {
+		this.errormessage = errormessage;
+	}
+
 
 
 	public String getMessage() {

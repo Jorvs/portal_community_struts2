@@ -1,14 +1,28 @@
 package com.community.bean.usersbean;
 
+
+
 public class ResetPasswordBean {
 
 
     String email_Address;
+    String code;
+
+    // String fromemail;
+    // String emailpassword;
+
+
 
 
     public ResetPasswordBean(String email_Address){
 
         this.email_Address = email_Address;
+
+    }
+
+    public ResetPasswordBean(String code, String email_Address){
+
+        this.code = code;
 
     }
 
@@ -21,6 +35,46 @@ public class ResetPasswordBean {
     public void setEmail_Address(String email_Address) {
         this.email_Address = email_Address;
     }
+
+
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+     
+
+
+    // @Override
+    // public String toString() {
+    //     return "{" +
+    //         " email_Address='" + getEmail_Address() + "'" +
+    //         "}";
+    // }
+
+
+   
+
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " email_Address='" + getEmail_Address() + "'" +
+            ", code='" + getCode() + "'" +
+            "}";
+    }
+
     
+    
+    
+
+
+   
+
     
 }

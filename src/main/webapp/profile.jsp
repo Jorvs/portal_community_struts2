@@ -53,10 +53,18 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        <s:label name="first_Name"></s:label>
+                                        <s:label name="first_Name"></s:label> 
                                     </h5>
                                     <h6>
-                                        Web Developer and Designer
+                                        <!-- <span style="color: red;" ><s:property  value="account_activation_display" /></span> -->
+
+                                        
+                                        <s:if test="account_activation_display == 1 ">
+                                            <span style="color: red;" >Reminder:  your email was not verified yet</span> 
+                                            <a style="color: orange;" href="emailacountactivation.jsp">Enter code here</a>
+                                        </s:if>
+
+
                                     </h6>
                                     <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">

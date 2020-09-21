@@ -19,6 +19,7 @@ if(session.getAttribute("login_user") == null)
   <a href="#" class="navbar-brand">Community Portal</a> 
 
       <h1>Welcome   </h1>
+     
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" 
   data-target="#myTogglerNav" aria-controls="myTogglerNav" aria-expanded="false" aria-label="Toggle navigation"> 

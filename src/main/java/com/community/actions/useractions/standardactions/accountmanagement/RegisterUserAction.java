@@ -4,6 +4,7 @@ import com.community.bean.usersbean.RegisterInfo;
 import com.community.bean.usersbean.ResetPasswordBean;
 import com.community.bean.usersbean.User;
 import com.community.dao.usersdao.standardao.UserMgmtDao;
+import com.community.sendemails.SendEmail;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class RegisterUserAction extends ActionSupport {
@@ -37,6 +38,13 @@ public class RegisterUserAction extends ActionSupport {
 		// bean for taking cehcking the email exsit
 		ResetPasswordBean check_emailaddress = new ResetPasswordBean(email_Address);
 
+		// bean for sending the varifcation code
+		ResetPasswordBean email_sending_verfication_bean = new ResetPasswordBean(email_Address);
+		SendEmail sendEmailForActivation =  new SendEmail();
+
+
+		
+
 		
 		// checks if the email exist 
 		boolean check_if_user_exist  =	UserMgmtDao.CheckEmailExist(check_emailaddress);
@@ -51,11 +59,15 @@ public class RegisterUserAction extends ActionSupport {
 		{
 			// inserts the user data
 			int Insert_user_data = UserMgmtDao.registerUser(userinfo);
+			
 
 			if(Insert_user_data >= 1)
 				{
 					System.out.println("condition have been met RegisterAction recieved The last id inserted is = "  + Insert_user_data);
 					UserMgmtDao.registerUserIDWorkExperianceTable(Insert_user_data); // insetts extra user data 
+					String  code = sendEmailForActivation.generateCode();// generates the verfication code
+					sendEmailForActivation.sendEmailForAccountVerication(email_sending_verfication_bean);
+				
 					return statuscode = "registerusersuccess";
 				}
 				else
@@ -188,6 +200,9 @@ public class RegisterUserAction extends ActionSupport {
 		if(email_Address.equals("")) {
 			addFieldError("email_Address", "email address is required");
 		}
+		if(password.equals("")) {
+			addFieldError("password", "password is  is required");
+		}
 		if(first_Name.equals("")) {
 			addFieldError("first_Name", "First Name is required");
 		}
@@ -203,9 +218,7 @@ public class RegisterUserAction extends ActionSupport {
 		if(birthday.equals("")) {
 			addFieldError("birthday", "birday Name is required");
 		}
-		if(birthday.equals("")) {
-			addFieldError("birthday", "birday Name is required");
-		}
+		
 		
 		
 	}// end of validate

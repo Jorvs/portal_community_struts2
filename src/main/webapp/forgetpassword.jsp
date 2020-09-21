@@ -37,7 +37,13 @@
 		padding: 40px 0;
 	}
 
-	
+	.errorMessage {
+		color: red;
+		font-size: 0.8em;
+		/* text-align: left; */
+		
+		
+	}
 	
     
     .signup-form form{

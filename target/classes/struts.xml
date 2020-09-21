@@ -97,6 +97,13 @@
     </action>
 
 
+    <!-- /////////////////////account activation////////////////////////////// -->
+<action name="accountActivateAction" class="com.community.actions.useractions.standardactions.accountmanagement.AccountActivateAction">  
+        <result name="accountactivated" >/emailacountactivationsucceslful.jsp</result>
+        <result name="input">/emailacountactivation.jsp</result>
+    </action>
+
+
 
     
     

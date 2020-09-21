@@ -94,7 +94,7 @@
 
 	<article class="col-sm-6"> 
 
-		<h2 >Registration Form</h2>
+		<h2 >Find Jobs</h2>
 
 		
 			<s:form	 class="signup-form form"	action="jobSearchResult" method="post" >

@@ -1,6 +1,7 @@
 package com.community.actions.useractions.standardactions.accountmanagement;
 
 import com.community.bean.usersbean.LoginInfo;
+import com.community.bean.usersbean.ResetPasswordBean;
 import com.community.bean.usersbean.User;
 import com.community.dao.usersdao.standardao.LoginDAO;
 import com.community.dao.usersdao.standardao.UserMgmtDao;
@@ -44,13 +45,19 @@ public class LoginAction extends ActionSupport {
     String statusCode;
     int user_id_session;
     int profile_id;
+
+    String account_activation_display;
+    String errormessage;
     
     
 
     public String execute() throws Exception{
         // boolean isUserValid = false;
        
+            //bean for login
             LoginInfo userInfo = new LoginInfo(email_Address,password);
+            
+           
           
 
                 boolean isUserValid = LoginDAO.isUserValid(userInfo);
@@ -59,15 +66,19 @@ public class LoginAction extends ActionSupport {
                 // gets the user id
                    
                     profile_id = UserMgmtDao.getUserId(userInfo); //gets the userid  that login 
+                    
+                    
                     System.out.println("the user idssss = " +  profile_id);
 
-                    
-                    // retriveProfileDataForOthers(profile_id); //retrives the data of the user id
-                    ServletActionContext.getRequest().getSession().setAttribute("login_user", profile_id); //sets the user id to the session
-                    
-                    
-                    // user_id_session =   (int)ServletActionContext.getRequest().getSession().getAttribute("login_user");
+                     // user_id_session =   (int)ServletActionContext.getRequest().getSession().getAttribute("login_user");
                     // System.out.println("from LoginAction user id from session = " + user_id_session); // does not work
+                    // retriveProfileDataForOthers(profile_id); //retrives the data of the user id
+
+
+                    //sets the user id to the session
+                    ServletActionContext.getRequest().getSession().setAttribute("login_user", profile_id); 
+                    //sets the email to the session for account activation
+                    ServletActionContext.getRequest().getSession().setAttribute("email_if_activated", email_Address); //sets the user id to the 
 
 
 
@@ -76,6 +87,7 @@ public class LoginAction extends ActionSupport {
                     return  statusCode = "loginsuccess";
                 }else
                 {
+                    errormessage = "Invalid username or password";
                     return  statusCode = "input";
                 }
 
@@ -127,6 +139,22 @@ public class LoginAction extends ActionSupport {
         // }
         
 
+
+    public String getAccount_activation_display() {
+        return this.account_activation_display;
+    }
+
+    public void setAccount_activation_display(String account_activation_display) {
+        this.account_activation_display = account_activation_display;
+    }
+
+    public String getErrormessage() {
+        return this.errormessage;
+    }
+
+    public void setErrormessage(String errormessage) {
+        this.errormessage = errormessage;
+    }
        
        
 
@@ -261,27 +289,7 @@ public class LoginAction extends ActionSupport {
 
 
 
-    // @Override
-    // public String toString() {
-    //     return "{" +
-    //         " email_Address='" + getEmail_Address() + "'" +
-    //         ", password='" + getPassword() + "'" +
-    //         ", user_id='" + getUser_id() + "'" +
-    //         ", first_Name='" + getFirst_Name() + "'" +
-    //         ", last_Name='" + getLast_Name() + "'" +
-    //         ", midle_Name='" + getMidle_Name() + "'" +
-    //         ", birthday='" + getBirthday() + "'" +
-    //         ", country='" + getCountry() + "'" +
-    //         ", city='" + getCity() + "'" +
-    //         ", contact_no='" + getContact_no() + "'" +
-    //         ", address='" + getAddress() + "'" +
-    //         ", gender='" + getGender() + "'" +
-    //         "}";
-    // }
-
-
-    
-
+   
 
 
 

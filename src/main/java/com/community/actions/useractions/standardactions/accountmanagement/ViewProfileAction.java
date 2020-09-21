@@ -1,5 +1,6 @@
 package com.community.actions.useractions.standardactions.accountmanagement;
 
+import com.community.bean.usersbean.ResetPasswordBean;
 import com.community.bean.usersbean.User;
 import com.community.dao.usersdao.standardao.UserMgmtDao;
 
@@ -30,10 +31,29 @@ public class ViewProfileAction {
     String salary;
     
     int user_id_session;
+    String account_activation_display;
+    String isUserAccountValidated;
    
     
-    public String execute(){
+    public String execute()throws Exception{
 
+    // retrives the emaill adress from the session for 
+     String   email_to_check_if_verified =   (String)ServletActionContext.getRequest().getSession().getAttribute("email_if_activated");
+     System.out.println("The email from the session is  = " + email_to_check_if_verified);
+
+        // bean for if email has been verfied or activated
+        ResetPasswordBean email_to_check_if_verified_bean = new ResetPasswordBean (email_to_check_if_verified);
+
+
+        boolean isUserAccountValidated = UserMgmtDao.checkIfEmailHasBeenVerified(email_to_check_if_verified_bean);
+        System.out.println("The value if isUserAccountValidated = " + isUserAccountValidated);
+        
+       if(isUserAccountValidated == true){
+            System.out.println("The user is account has not been validated ");
+            // account_activation_display = "Your email was not verified yet \n enteryou verification code here \n  ";
+            account_activation_display = "1";
+            System.out.println(account_activation_display);
+       }
         
         retriveProfileData();   // retrives the data of the profile of the user that is logon
 
@@ -54,6 +74,8 @@ public class ViewProfileAction {
 
         //  recives the user_id and retrives the profile date of the user login
         User user_data = UserMgmtDao.getUserDataByID(user_id_session);
+
+        
         
 
 
@@ -108,6 +130,24 @@ public class ViewProfileAction {
 
 
 
+    public String getIsUserAccountValidated() {
+        return this.isUserAccountValidated;
+    }
+
+    public void setIsUserAccountValidated(String isUserAccountValidated) {
+        this.isUserAccountValidated = isUserAccountValidated;
+    }
+
+
+
+
+    public String getAccount_activation_display() {
+        return this.account_activation_display;
+    }
+
+    public void setAccount_activation_display(String account_activation_display) {
+        this.account_activation_display = account_activation_display;
+    }
 
 
 

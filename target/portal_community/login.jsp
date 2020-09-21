@@ -37,7 +37,13 @@
 		padding: 40px 0;
 	}
 
-	
+	.errorMessage {
+		color: red;
+		font-size: 0.8em;
+		/* text-align: left; */
+		
+		
+	}
 	
     
     .signup-form form{
@@ -99,7 +105,8 @@
 
 	
     <s:form		action="loginAction" class="LoginForm" >
-        <s:textfield name="email_Address" label="Email/User Name" class="formTextField"></s:textfield>
+		<span style="color: red;" ><s:property  value="errormessage" /></span>
+        <s:textfield name="email_Address" label="Email/User Name" class="formTextField" type="email" ></s:textfield>
         <s:textfield name="password" label="Password" type="password" class="formTextField" ></s:textfield>
         <s:submit value="Login" class="actionBtn"/>
     </s:form>

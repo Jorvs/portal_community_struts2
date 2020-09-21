@@ -92,7 +92,7 @@
 						<!-- ////////////////////////////////// -->
 <div class="signup-form container" >
 
-	<h2 >Registration Form</h2>
+	<h2 >Job has been Registred</h2>
 
 	
 		<s:form	 class="signup-form form"	action="jobPostUserAction" method="post" >

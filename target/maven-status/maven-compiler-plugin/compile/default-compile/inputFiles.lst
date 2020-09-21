@@ -14,6 +14,7 @@ D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\models\Customer.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\jobsmanagement\JobPostUserAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\adminactions\accountmanagement\UpdateAction.java
+D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\actions\useractions\standardactions\accountmanagement\AccountActivateAction.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\dao\usersdao\standardao\UserMgmtDao.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\dao\usersdao\standardao\RegisterDao.java
 D:\boot camp final burning\FireThatBurnsFire2\portal_community\src\main\java\com\community\dbconnection\DConnection.java

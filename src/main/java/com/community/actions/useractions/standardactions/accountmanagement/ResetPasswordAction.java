@@ -25,7 +25,7 @@ public class ResetPasswordAction extends ActionSupport {
         
         System.out.println("the reset password action was executed");
    
-        // bean
+        // bean for holding the email where to send the reset password
         ResetPasswordBean reset_email = new ResetPasswordBean(email_Address);
 
         // used for sending the mail to the email

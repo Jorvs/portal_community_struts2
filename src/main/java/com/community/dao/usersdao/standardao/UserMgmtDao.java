@@ -551,8 +551,7 @@ public static User getProfileWorkExperianceDataById(int user_id){
 
 
     // check if the email already exist in the database
-    
-    public static boolean CheckEmailExist(ResetPasswordBean ResetPasswordBean) throws Exception {
+     public static boolean CheckEmailExist(ResetPasswordBean ResetPasswordBean) throws Exception {
        
        
        
@@ -586,33 +585,97 @@ public static User getProfileWorkExperianceDataById(int user_id){
             DConnection.closeConnection(conn);
         }
             return validStatus;
+
     
    }// end of isUserValid function
 
 
+
+
+
+
+
  // for reseting the password by inserting a new password
- public static int InsertResetPassword(String email_Address, String code ){
+ public static int sendEmailForAccountVerication(String email_Address, String code ){
+    
+    // int status = 0;
+    int generatedKey = 0;
+    int status = 0;
+    Connection  conn = null;
+
+      try{
+
+     conn = DConnection.getConnectionToMySQL();
+      String query = "INSERT INTO " 
+                    + " activation_table " 
+                    +   "("
+                    +   "email_Address, " 
+                    +   "activation_code, " 
+                    +   "activated " 
+                    +   ")"
+                    +   "VALUES (?,?,?) ";
+       PreparedStatement ps = conn.prepareStatement(query);
+      
+       ps.setString(1,  email_Address );
+       ps.setString(2,  code );
+       ps.setInt(3,  0 );
+       
+      
+       // where condition target email_Address
+       
+       System.out.println("userMmgt email address =  " + email_Address );
+
+       System.out.println("query exucted in Usermgmt for password reset = " + ps );
+
+
+        status = ps.executeUpdate();
+       
+
+
+
+       // if there  is 1 table udpdated it results to a true
+        if(status == 1 ){
+            System.out.println("The update password was sucesfuly updated in UserMgmt ");
+        }
+         
+      
+       
+   }catch(Exception e)
+   {
+       e.printStackTrace();
+       System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+       System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+   }finally
+   {
+       
+           DConnection.closeConnection(conn);
+      
+    }// finally end
+   
+ return status;
+
+}// end of updateUser
+
+
+
+
+
+
+
+// insert registration verfication code 
+public static int insertResetPassword(String email_Address, String code ){
 
     // int status = 0;
     int generatedKey = 0;
     int status = 0;
     Connection  conn = null;
 
-    
-    
-
     try{
 
-   
-        
-    
       conn = DConnection.getConnectionToMySQL();
       String query = "UPDATE user_table  SET " 
-                 
-                    +    "password = ? " 
-                   
-                 
-                    +    "WHERE email_Address = ?  ";
+                   +    "password = ? " 
+                   +    "WHERE email_Address = ?  ";
        PreparedStatement ps = conn.prepareStatement(query);
       
        ps.setString(1,  code );
@@ -655,4 +718,162 @@ public static User getProfileWorkExperianceDataById(int user_id){
 
 
 
-}// end of UserMgmtDao
+
+
+
+
+
+
+
+ // check if the account has been verified
+ public static boolean checkIfEmailHasBeenVerified(ResetPasswordBean ResetPasswordBean) throws Exception {
+       
+       
+       
+    boolean validStatus = false;
+    Connection conn = null;
+   
+
+
+    try{
+        conn = DConnection.getConnectionToMySQL();
+        String query = "SELECT * " 
+                     + "FROM activation_table " 
+                     + "WHERE " 
+                     + "email_Address = ? " 
+                     + "AND "
+                     + "activated = 0 ";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, ResetPasswordBean.getEmail_Address());
+        
+    //    System.out.println(ps);
+        ResultSet rs = ps.executeQuery();
+        // System.out.println(rs);
+        while(rs.next())
+        {
+            validStatus = true;
+
+        }
+        
+    }catch(Exception e)
+    {
+        e.printStackTrace();
+        System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+        System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+    }finally
+    {
+        DConnection.closeConnection(conn);
+    }
+        return validStatus;
+
+}// end of isUserValid function
+
+
+
+// check if the activation code mathches the email address
+public static boolean checkIfEmailAndCodeMatches(ResetPasswordBean ResetPasswordBean) throws Exception {
+       
+       
+       
+    boolean validStatus = false;
+    Connection conn = null;
+   
+
+
+    try{
+        conn = DConnection.getConnectionToMySQL();
+        String query = "SELECT * " 
+                     + "FROM activation_table " 
+                     + "WHERE " 
+                     + "email_Address = ? " 
+                     + "AND "
+                     + "activation_code = ? ";
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, ResetPasswordBean.getEmail_Address() );
+        ps.setString(2, ResetPasswordBean.getCode() );
+        
+        System.out.println(ps);
+        ResultSet rs = ps.executeQuery();
+         System.out.println(rs);
+        while(rs.next())
+        {
+            validStatus = true;
+
+        }
+        
+    }catch(Exception e)
+    {
+        e.printStackTrace();
+        System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+        System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+    }finally
+    {
+        DConnection.closeConnection(conn);
+    }
+        return validStatus;
+
+}// end of isUserValid function
+
+
+
+
+
+// insert registration verfication code 
+public static int changeVerficationStatus(String email_Address ){
+
+    // int status = 0;
+    int generatedKey = 0;
+    int status = 0;
+    Connection  conn = null;
+
+    try{
+
+      conn = DConnection.getConnectionToMySQL();
+      String query = "UPDATE activation_table  SET " 
+                   +    "activated = 1 " 
+                   +    "WHERE email_Address = ?  ";
+       PreparedStatement ps = conn.prepareStatement(query);
+      
+       
+      
+       // where condition target email_Address
+       ps.setString(1, email_Address );
+       System.out.println("userMmgt email address =  " + email_Address );
+
+       System.out.println("query exucted in Usermgmt for password reset = " + ps );
+
+
+        status = ps.executeUpdate();
+       
+
+
+
+       // if there  is 1 table udpdated it results to a true
+        if(status == 1 ){
+            System.out.println("The update password was sucesfuly updated in UserMgmt ");
+        }
+         
+      
+       
+   }catch(Exception e)
+   {
+       e.printStackTrace();
+       System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+       System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+   }finally
+   {
+       
+           DConnection.closeConnection(conn);
+      
+    }// finally end
+   
+ return status;
+
+}// end of updateUser
+
+
+
+
+
+
+}////////////////////////////////////////// end of UserMgmtDao

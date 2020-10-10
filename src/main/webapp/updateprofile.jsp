@@ -56,8 +56,11 @@
 		<s:textfield name="year_worked" label="Year Worked" ></s:textfield>
 
 		<s:submit   value="Update_User"/>
-		</s:form>
 
+		<!-- <h2><a href="updatepassword.jsp">Change password</a></h2> -->
+		</s:form>
+	
+		
 
 
 		

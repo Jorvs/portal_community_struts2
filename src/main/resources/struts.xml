@@ -103,6 +103,12 @@
         <result name="input">/emailacountactivation.jsp</result>
     </action>
 
+    <!-- /////////////////////update password manulaly////////////////////////////// -->
+<action name="updateSavePasswordAction" class="com.community.actions.useractions.standardactions.accountmanagement.UpdateSavePasswordAction">  
+    <result name="accountactivated" >/login.jsp</result>
+    <result name="input">/emailacountactivation.jsp</result>
+</action>
+
 
 
     

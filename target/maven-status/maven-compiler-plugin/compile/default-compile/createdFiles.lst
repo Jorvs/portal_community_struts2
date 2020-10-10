@@ -1,4 +1,5 @@
 com\community\actions\useractions\standardactions\accountmanagement\SearchUsersAction.class
+com\community\actions\useractions\standardactions\accountmanagement\UpdateSavePasswordAction.class
 com\community\actions\useractions\standardactions\accountmanagement\ResetPasswordAction.class
 com\community\actions\useractions\standardactions\jobsmanagement\JobSearchAction.class
 com\community\dao\postdao\standardao\JobsMgmtDao.class

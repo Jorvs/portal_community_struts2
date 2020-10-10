@@ -662,7 +662,7 @@ public static User getProfileWorkExperianceDataById(int user_id){
 
 
 
-// insert registration verfication code 
+// insert reset password from email
 public static int insertResetPassword(String email_Address, String code ){
 
     // int status = 0;
@@ -714,7 +714,7 @@ public static int insertResetPassword(String email_Address, String code ){
    
  return status;
 
-}// end of updateUser
+}// end of insertResetPassword
 
 
 
@@ -766,7 +766,17 @@ public static int insertResetPassword(String email_Address, String code ){
     }
         return validStatus;
 
-}// end of isUserValid function
+}// end of checkIfEmailHasBeenVerified function
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -812,7 +822,7 @@ public static boolean checkIfEmailAndCodeMatches(ResetPasswordBean ResetPassword
     }
         return validStatus;
 
-}// end of isUserValid function
+}// end of checkIfEmailAndCodeMatches function
 
 
 
@@ -869,7 +879,77 @@ public static int changeVerficationStatus(String email_Address ){
    
  return status;
 
-}// end of updateUser
+}// end of changeVerficationStatus
+
+
+
+
+
+
+
+
+
+// inserts the manualy change password
+public static int updaterUserPassword(String user_id_from_session, String password ){
+
+    // int status = 0;
+    int generatedKey = 0;
+    int status = 0;
+    Connection  conn = null;
+
+    try{
+
+      conn = DConnection.getConnectionToMySQL();
+      String query = "UPDATE user_table  SET " 
+                   +    "password = ? " 
+                   +    "WHERE user_id = ?  ";
+       PreparedStatement ps = conn.prepareStatement(query);
+      
+       ps.setString(1,  password );
+       System.out.println("userMgmt password = " + password );
+      
+       // where condition target email_Address
+       ps.setString(2, user_id_from_session );
+       System.out.println("userMmgt user_id =  " + user_id_from_session);
+
+       System.out.println("query exucted in Usermgmt for password reset = " + ps );
+
+
+        status = ps.executeUpdate();
+       
+
+
+
+       // if there  is 1 table udpdated it results to a true
+        if(status == 1 ){
+            System.out.println("The update password was sucesfuly updated in UserMgmt ");
+        }
+         
+      
+       
+   }catch(Exception e)
+   {
+       e.printStackTrace();
+       System.err.println("SQL STATE: " + ((SQLException)e).getSQLState());
+       System.err.println("SQL ERROR CODE: " + ((SQLException)e).getErrorCode());
+   }finally
+   {
+       
+           DConnection.closeConnection(conn);
+      
+    }// finally end
+   
+ return status;
+
+}// end of updaterUserPassword
+
+
+
+
+
+
+
+
 
 
 
